@@ -1,61 +1,62 @@
 #include <iostream>
 
-template<typename T> class Node {
+
+template<typename U> class DoubleLinkedList {
         private:
-                Node *next;
-                Node *prev;
-                T *data;
-        public:
-                Node(T *d) {
-                        next = NULL;
-                        prev = NULL;
-                        data = d;
-                }
-                Node(T *d, Node *p, Node *n) {
-                        next = n;
-                        prev = p;
-                        data = d;
-                }
-
-                T* getData() {
-                        return data;
-                }
-
-                void setData(T* d) {
-                        data = d;
-                }
-
-                void setNext(Node *n) {
-                        next = n;
-                }
-
-                void setPrev(Node *p) {
-                        prev = p;
-                }
-
-                Node* getPrev() {
-                        return prev;
-                }
-
-                Node* getNext() {
-                        return next;
-                }
-};
-
-template<typename U> class DoubledLinkedList {
+                struct Node {
+                        Node* next;
+                        Node* prev;
+                        U* data;
+                };
         private: 
-                Node<U> *head;
-                Node<U> *tail;
+                Node *head;
+                Node *tail;
                 int size;
+
+
+                Node* newNode(U* d) {
+                        Node* n = new Node();
+                        n->data = d;
+                        return n;
+                }
         public: 
                 DoubleLinkedList() {
                         head = tail = NULL;
                         size = 0;
                 }
 
-                DoubleLinkedList() {
-                        
+                void addFirst(U *d) {
+                        Node *n = newNode(d);
+                        if(size == 0) {
+                                head = tail = n;
+                        }
+                        else {
+                                head->prev = n;
+                                n->next = head;
+                                head = n;
+                        }
+                        size++;
                 }
+
+                void addLast(U *d) {
+                        Node *n = newNode(d);
+                        if(size == 0) {
+                                head = tail = n;
+                        }
+                        else {
+                                tail->next = n;
+                                n->prev = tail;
+                                tail = n;
+                        }
+                }
+
+                void add(int index, U *d) {
+                        if(index < 0 || index >= size) {
+                                throw std::exception("Passed index " + std::to_string(index) + " is out of bounds. The index must be greater"
+                                + "than 0 and less than " + std::to_string(size) + ".");
+                        }
+                }
+
 };
 
 int main() {
@@ -64,8 +65,7 @@ int main() {
         int *ptr = &i;
         int j = 3;
         int *ptr2 = &j;
-        Node<int> *n = new Node<int>(ptr);
-        Node<int> *nxt = new Node<int>(ptr2, n, NULL);
-        std::cout<<"Node Pointer Data: "<< *((int*)nxt->getPrev()->getData()) << std::endl;
+        DoubleLinkedList<int> *list = new DoubleLinkedList<int>();
+        list->addFirst(ptr);
         return 0;
 }

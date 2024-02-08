@@ -17,6 +17,7 @@ template<typename U> class DoubleLinkedList {
                 Node* newNode(U* d) {
                         Node* n = new Node();
                         n->data = d;
+                        n->next = n->prev = NULL;
                         return n;
                 }
         public: 
@@ -51,10 +52,29 @@ template<typename U> class DoubleLinkedList {
                 }
 
                 void add(int index, U *d) {
-                        if(index < 0 || index >= size) {
+                        if(index < 0 || index > size) {
                                 throw std::exception("Passed index " + std::to_string(index) + " is out of bounds. The index must be greater"
                                 + "than 0 and less than " + std::to_string(size) + ".");
                         }
+
+                        if(index == 0) {
+                                addFirst(d);
+                        }
+                        else if(index == size) {
+                                addLast(d);
+                        }
+                        else {
+                                Node *n = newNode(d);
+                                Node *current = head;
+                                for(int i = 0; i < index; i++) {
+                                        current = current->next;
+                                }
+                                n->prev = current;
+                                n->next = current->next;
+                                current->next->prev = n;
+                                current->next = n;
+                        }
+                       
                 }
 
 };

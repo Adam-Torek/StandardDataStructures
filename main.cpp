@@ -27,10 +27,32 @@ template<typename U> class DoubleLinkedList {
                         current->next->prev = n;
                         current->next = n;
                 }
+
+                void checkIndex(int index) {
+                         if(index < 0 || index >= size) {
+                                throw std::invalid_argument("Index out of Bounds");
+                        }
+                }
+
+                Node *loopToIndex(int index) {
+                        Node *current = head;
+                        for(int i = 0; i < index-1; i++) {
+                                current = current->next;
+                        }
+                        return current;
+                }
         public: 
                 DoubleLinkedList() {
                         head = tail = NULL;
                         size = 0;
+                }
+
+                bool isEmpty() {
+                        return size == 0;
+                }
+
+                int size() {
+                        return size;
                 }
 
                 void addFirst(U *d) {
@@ -71,12 +93,8 @@ template<typename U> class DoubleLinkedList {
                                 addLast(d);
                         }
                         else {
-                                Node *n = newNode(d);
-                                Node *current = head;
-                                for(int i = 0; i < index-1; i++) {
-                                        current = current->next;
-                                }
-                                insertMiddleNode(n, current);
+                                
+                                insertMiddleNode(newNode(d), loopToIndex(index));
                                 size++;
                         }
                        
@@ -107,17 +125,68 @@ template<typename U> class DoubleLinkedList {
                         }
                 }
 
-                U* get(int index) {
-                        if(index < 0 || index >= size) {
-                                throw std::invalid_argument("Index out of Bounds");
+                U* removeFirst() {
+                        if(isEmpty()) {
+                                throw std::exception("Empty list");
                         }
-
-                        Node *current = head;
-                        for(int i = 0; i < size-1; i++) {
-                                current = current->next;
+                        Node* temp = head;
+                        if(size == 1) {
+                                head = tail = NULL;
                         }
-                        return current->data;
+                        else {
+                                head->next->prev = NULL;
+                                head = head->next;                                
+                        }
+                        size--;
+                        U *retVal = temp->data;
+                        delete temp;
+                        return retVal;
                 }
+                 
+                U* removeLast() {
+                        if(isEmpty()) {
+                                throw std::exception("Empty list");
+                        }
+                        Node* temp = tail;
+                        if(size == 1) {
+                                head = tail = NULL;
+                        }
+                        else {
+                                tail->prev->next = NULL;
+                                tail = tail->prev;                                
+                        }
+                        size--;
+                        U *retVal = temp->data;
+                        delete temp;
+                        return retVal;
+                }
+
+                U* get(int index) {
+                        checkIndex(index);
+                        if(index == 0) {
+                                return head->data;
+                        }
+                        else if(index == size-1) {
+                                return tail->data;
+                        }
+                        return loopToIndex(index)->data;
+                }
+
+                void set(U* d, int index) {
+                       checkIndex(index);
+                       if(index == 0) {
+                                head->data = d;
+                       }
+                       else if(index == size-1) {
+                                tail->data = d;
+                       }
+                       else {
+                                Node *setNode = loopToIndex(index);
+                                setNode->data = d; 
+                        }
+                }
+
+
 
 };
 

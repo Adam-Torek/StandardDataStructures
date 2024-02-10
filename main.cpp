@@ -11,8 +11,7 @@ template<typename U> class DoubleLinkedList {
         private: 
                 Node *head;
                 Node *tail;
-                int size;
-
+                int len;
 
                 Node* newNode(U* d) {
                         Node* n = new Node();
@@ -29,7 +28,7 @@ template<typename U> class DoubleLinkedList {
                 }
 
                 void checkIndex(int index) {
-                         if(index < 0 || index >= size) {
+                         if(index < 0 || index >= len) {
                                 throw std::invalid_argument("Index out of Bounds");
                         }
                 }
@@ -41,23 +40,32 @@ template<typename U> class DoubleLinkedList {
                         }
                         return current;
                 }
+
+                U* removeMiddleNode(Node* n) {
+                        n->prev->next = n->next;
+                        n->next->prev = n->prev;
+                        n->next = n->prev = NULL;
+                        U *retVal = n->data;
+                        delete n;
+                        return retVal;
+                }
         public: 
                 DoubleLinkedList() {
                         head = tail = NULL;
-                        size = 0;
+                        len = 0;
                 }
 
                 bool isEmpty() {
-                        return size == 0;
+                        return len == 0;
                 }
 
                 int size() {
-                        return size;
+                        return len;
                 }
 
                 void addFirst(U *d) {
                         Node *n = newNode(d);
-                        if(size == 0) {
+                        if(len == 0) {
                                 head = tail = n;
                         }
                         else {
@@ -65,12 +73,12 @@ template<typename U> class DoubleLinkedList {
                                 n->next = head;
                                 head = n;
                         }
-                        size++;
+                        len++;
                 }
 
                 void addLast(U *d) {
                         Node *n = newNode(d);
-                        if(size == 0) {
+                        if(len == 0) {
                                 head = tail = n;
                         }
                         else {
@@ -78,31 +86,31 @@ template<typename U> class DoubleLinkedList {
                                 n->prev = tail;
                                 tail = n;
                         }
-                        size++;
+                        len++;
                 }
 
                 void add(int index, U *d) {
-                        if(index < 0 || index > size) {
+                        if(index < 0 || index > len) {
                                 throw std::invalid_argument("Index out of bounds");
                         }
 
                         if(index == 0) {
                                 addFirst(d);
                         }
-                        else if(index == size) {
+                        else if(index == len) {
                                 addLast(d);
                         }
                         else {
                                 
                                 insertMiddleNode(newNode(d), loopToIndex(index));
-                                size++;
+                                len++;
                         }
                        
                 }
 
                 void add(U* target, U* d) {
 
-                        if(size == 0) {
+                        if(len == 0) {
                                 throw std::exception("Empty List");
                         }
 
@@ -121,7 +129,7 @@ template<typename U> class DoubleLinkedList {
                                         return;
                                 }
                                 insertMiddleNode(newNode(d), current);
-                                size++;
+                                len++;
                         }
                 }
 
@@ -130,14 +138,14 @@ template<typename U> class DoubleLinkedList {
                                 throw std::exception("Empty list");
                         }
                         Node* temp = head;
-                        if(size == 1) {
+                        if(len == 1) {
                                 head = tail = NULL;
                         }
                         else {
                                 head->next->prev = NULL;
                                 head = head->next;                                
                         }
-                        size--;
+                        len--;
                         U *retVal = temp->data;
                         delete temp;
                         return retVal;
@@ -148,17 +156,30 @@ template<typename U> class DoubleLinkedList {
                                 throw std::exception("Empty list");
                         }
                         Node* temp = tail;
-                        if(size == 1) {
+                        if(len == 1) {
                                 head = tail = NULL;
                         }
                         else {
                                 tail->prev->next = NULL;
                                 tail = tail->prev;                                
                         }
-                        size--;
+                        len--;
                         U *retVal = temp->data;
                         delete temp;
                         return retVal;
+                }
+
+                U* remove(int index) {
+                        checkIndex(index);
+                        if(index == 0) {
+                                return removeFirst();
+                        }
+                        else if(index == len-1) {
+                                return removeLast();
+                        }
+                        else {
+                                return removeMiddleNode(loopToIndex(index));
+                        }
                 }
 
                 U* get(int index) {
@@ -166,7 +187,7 @@ template<typename U> class DoubleLinkedList {
                         if(index == 0) {
                                 return head->data;
                         }
-                        else if(index == size-1) {
+                        else if(index == len-1) {
                                 return tail->data;
                         }
                         return loopToIndex(index)->data;
@@ -177,7 +198,7 @@ template<typename U> class DoubleLinkedList {
                        if(index == 0) {
                                 head->data = d;
                        }
-                       else if(index == size-1) {
+                       else if(index == len-1) {
                                 tail->data = d;
                        }
                        else {

@@ -4,25 +4,19 @@
 template<typename U> class DoubleLinkedList {
         private:
                 struct Node {
-                        Node* next;
-                        Node* prev;
+                        Node(U* d) : data{d}, prev{nullptr}, next{nullptr}{};
+                        Node(U* d, Node* p, Node* n) : data{d}, prev{p}, next{n}{};
                         U* data;
+                        Node* prev;
+                        Node* next;
                 };
         private: 
                 Node *head;
                 Node *tail;
                 int len;
 
-                Node* newNode(U* d) {
-                        Node* n = new Node();
-                        n->data = d;
-                        n->next = n->prev = NULL;
-                        return n;
-                }
-
-                void insertMiddleNode(Node *n, Node *current) {
-                        n->prev = current;
-                        n->next = current->next;
+                void insertMiddleNode(U* d, Node *current) {
+                        Node *n = new Node(d, current, current->next);
                         current->next->prev = n;
                         current->next = n;
                 }
@@ -44,14 +38,14 @@ template<typename U> class DoubleLinkedList {
                 U* removeMiddleNode(Node* n) {
                         n->prev->next = n->next;
                         n->next->prev = n->prev;
-                        n->next = n->prev = NULL;
+                        n->next = n->prev = nullptr;
                         U *retVal = n->data;
                         delete n;
                         return retVal;
                 }
         public: 
                 DoubleLinkedList() {
-                        head = tail = NULL;
+                        head = tail = nullptr;
                         len = 0;
                 }
 
@@ -64,7 +58,7 @@ template<typename U> class DoubleLinkedList {
                 }
 
                 void addFirst(U *d) {
-                        Node *n = newNode(d);
+                        Node *n = new Node(d);
                         if(len == 0) {
                                 head = tail = n;
                         }
@@ -77,7 +71,7 @@ template<typename U> class DoubleLinkedList {
                 }
 
                 void addLast(U *d) {
-                        Node *n = newNode(d);
+                        Node *n = new Node(d);
                         if(len == 0) {
                                 head = tail = n;
                         }
@@ -102,7 +96,7 @@ template<typename U> class DoubleLinkedList {
                         }
                         else {
                                 
-                                insertMiddleNode(newNode(d), loopToIndex(index));
+                                insertMiddleNode(d, loopToIndex(index));
                                 len++;
                         }
                        
@@ -113,22 +107,25 @@ template<typename U> class DoubleLinkedList {
                         if(len == 0) {
                                 throw std::exception("Empty List");
                         }
-
-                        if(target == tail->data) {
+                        
+                        if(target == head->data) {
+                                addFirst(d);
+                        }
+                        else if(target == tail->data) {
                                 addLast(d);
                         }
 
                         else {
                                 Node *current = head;
 
-                                while(current != NULL && current->data != target) {
+                                while(current != nullptr && current->data != target) {
                                         current = current->next;
                                 }
 
-                                if(current == NULL) {
+                                if(current == nullptr) {
                                         return;
                                 }
-                                insertMiddleNode(newNode(d), current);
+                                insertMiddleNode(d, current);
                                 len++;
                         }
                 }
@@ -139,10 +136,10 @@ template<typename U> class DoubleLinkedList {
                         }
                         Node* temp = head;
                         if(len == 1) {
-                                head = tail = NULL;
+                                head = tail = nullptr;
                         }
                         else {
-                                head->next->prev = NULL;
+                                head->next->prev = nullptr;
                                 head = head->next;                                
                         }
                         len--;
@@ -157,10 +154,10 @@ template<typename U> class DoubleLinkedList {
                         }
                         Node* temp = tail;
                         if(len == 1) {
-                                head = tail = NULL;
+                                head = tail = nullptr;
                         }
                         else {
-                                tail->prev->next = NULL;
+                                tail->prev->next = nullptr;
                                 tail = tail->prev;                                
                         }
                         len--;
@@ -178,7 +175,29 @@ template<typename U> class DoubleLinkedList {
                                 return removeLast();
                         }
                         else {
+                                len--;
                                 return removeMiddleNode(loopToIndex(index));
+
+                        }
+                }
+
+                U* remove(U* target) {
+                        if(head->data == target) {
+                                return removeFirst();
+                        }
+                        else if(tail->data == target) {
+                                return removeLast();
+                        }
+                        else {
+                                Node *current = head;
+                                while(current != nullptr && current->data != target) {
+                                        current = current->next;
+                                }
+                                if(current == nullptr) {
+                                        return nullptr;
+                                }
+                                len--;
+                                return removeMiddleNode(current);
                         }
                 }
 
@@ -220,6 +239,6 @@ int main() {
         DoubleLinkedList<int> *list = new DoubleLinkedList<int>();
         list->addFirst(ptr);
         list->add(1, ptr2);
-        std::cout << "Value stored in list at index 1 is " <<  *list->get(1);
+        std::cout << "Value stored in list at index 1 is " <<  *list->get(1) << "\n";
         return 0;
 }

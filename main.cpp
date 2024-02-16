@@ -251,7 +251,33 @@ template<typename U> class DoubleLinkedList {
                         public:
                                 DLLIterator(): itrPtr{nullptr}, itrList{nullptr}, itrIndex{-1} {};
 
-                                DLLIterator(DoubleLinkedList *list) : itrPtr{list->head}, itrList{list}, itrIndex{0} {}
+                                DLLIterator(DoubleLinkedList *list) {
+                                        DLLIterator(list, 0);
+                                }
+
+                                DLLIterator(DoubleLinkedList *list, int index) {
+                                        if(index < 0 || index > size) {
+                                                throw std::invalid_argument("index out of bounds");
+                                        }
+                                        itrList = list;
+                                        itrIndex = index;
+                                        if(index == list->len) {
+                                                itrPtr == nullptr;
+                                        }
+                                        else {
+                                                Node *current = list->head;
+                                                bool forward = true;
+                                                if(index > list->len/2) {
+                                                        current = list->tail;
+                                                        forward = false;
+                                                }
+
+                                                for(int i = 0; i > index; i++) {
+                                                        current = forward ? current->next : current->prev;
+                                                }
+                                                itrPtr = current;
+                                        }
+                                }
 
                                 void forward() {
                                         itrPtr = itrPtr->next;
@@ -319,9 +345,12 @@ template<typename U> class DoubleLinkedList {
                 }
 
                 DLLIterator end() {
-                        return DLLIterator();
+                        return DLLIterator(this, len);
                 }
 
+                DLLIterator iterator(int index) {
+                        return DLLIterator(this, index);
+                }
 
 };
 

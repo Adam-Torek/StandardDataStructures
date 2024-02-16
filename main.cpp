@@ -4,8 +4,8 @@
 template<typename U> class DoubleLinkedList {
         private:
                 struct Node {
-                        Node(U* d) : data{d}, prev{nullptr}, next{nullptr}{};
-                        Node(U* d, Node* p, Node* n) : data{d}, prev{p}, next{n}{};
+                        Node(U* d) : data(d), prev(nullptr), next(nullptr){};
+                        Node(U* d, Node* p, Node* n) : data(d), prev(p), next(n){};
                         U* data;
                         Node* prev;
                         Node* next;
@@ -47,6 +47,16 @@ template<typename U> class DoubleLinkedList {
                 DoubleLinkedList() {
                         head = tail = nullptr;
                         len = 0;
+                }
+
+                ~DoubleLinkedList() {
+                        Node* current = head;
+                        while(current != nullptr) {
+                                Node* temp = current;
+                                current = current->next;
+                                delete temp;
+                        }
+                        delete current;
                 }
 
                 bool isEmpty() {
@@ -226,6 +236,91 @@ template<typename U> class DoubleLinkedList {
                         }
                 }
 
+                class DLLIterator {
+                        friend class DoubleLinkedList;
+                        private:
+                                Node *itrPtr;
+                                DoubleLinkedList *itrList;
+                                int itrIndex;
+
+                                bool checkListPointer(const DLLIterator& otherItr) const {
+                                       return itrList == otherItr.itrList;
+                                }
+
+                        
+                        public:
+                                DLLIterator(): itrPtr{nullptr}, itrList{nullptr}, itrIndex{-1} {};
+
+                                DLLIterator(DoubleLinkedList *list) : itrPtr{list->head}, itrList{list}, itrIndex{0} {}
+
+                                void forward() {
+                                        itrPtr = itrPtr->next;
+                                        itrIndex++;
+                                }
+
+                                void backward() {
+                                        itrPtr = itrPtr->prev;
+                                        itrIndex--;
+                                }
+
+                                bool operator!=(const DLLIterator& otherItr) const {
+                                        return checkListPointer(otherItr) && otherItr.itrIndex != itrIndex;
+                                }
+
+                                bool operator==(const DLLIterator& otherItr) const {
+                                        return checkListPointer(otherItr) && otherItr.itrIndex == itrIndex;
+                                }
+
+                                bool operator>(const DLLIterator& otherItr) const {
+                                        return checkListPointer(otherItr) && otherItr.itrIndex > itrIndex;
+                                }
+
+                                bool operator>=(const DLLIterator& otherItr) const {
+                                        return (*this)>otherItr || (*this)==otherItr;
+                                }
+
+                                bool operator<(const DLLIterator& otherItr) const {
+                                        return checkListPointer(otherItr) && otherItr.itrIndex < itrIndex;
+                                }
+
+                                bool operator<=(const DLLIterator& otherItr) const {
+                                        return (*this)<otherItr || (*this)==otherItr;
+                                }
+
+                                DLLIterator& operator++() {
+                                        forward();
+                                        return *this;
+                                }
+
+                                DLLIterator operator++(int) {
+                                        DLLIterator temp = *this;
+                                        forward();
+                                        return temp;
+                                }
+
+                                DLLIterator& operator--() {
+                                        backward();
+                                        return *this;
+                                }
+
+                                DLLIterator operator--(int) {
+                                        DLLIterator temp = *this;
+                                        backward();
+                                        return temp;
+                                }
+
+                                U& operator*() {
+                                        return itrPtr->data;
+                                }
+                };
+
+                DLLIterator begin() {
+                        return DLLIterator(this);
+                }
+
+                DLLIterator end() {
+                        return DLLIterator();
+                }
 
 
 };

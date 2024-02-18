@@ -1,12 +1,14 @@
 #include <iostream>
 #include <stdexcept>
 
+
+
 template<typename U> class DoubleLinkedList {
         private:
                 struct Node {
-                        Node(U* d) : data(d), prev(nullptr), next(nullptr){};
-                        Node(U* d, Node* p, Node* n) : data(d), prev(p), next(n){};
-                        U* data;
+                        Node(U d) : data(d), prev(nullptr), next(nullptr){};
+                        Node(U d, Node* p, Node* n) : data(std::move(d)), prev(p), next(n){};
+                        U data;
                         Node* prev;
                         Node* next;
                 };
@@ -15,7 +17,7 @@ template<typename U> class DoubleLinkedList {
                 Node *tail;
                 int len;
 
-                void insertMiddleNode(U* d, Node *current) {
+                void insertMiddleNode(U d, Node *current) {
                         Node *n = new Node(d, current, current->next);
                         current->next->prev = n;
                         current->next = n;
@@ -35,15 +37,17 @@ template<typename U> class DoubleLinkedList {
                         return current;
                 }
 
-                U* removeMiddleNode(Node* n) {
+                U removeMiddleNode(Node* n) {
                         n->prev->next = n->next;
                         n->next->prev = n->prev;
                         n->next = n->prev = nullptr;
-                        U *retVal = n->data;
+                        U retVal = n->data;
                         delete n;
                         return retVal;
                 }
         public: 
+                using ValueType = U;
+
                 DoubleLinkedList() {
                         head = tail = nullptr;
                         len = 0;
@@ -67,7 +71,7 @@ template<typename U> class DoubleLinkedList {
                         return len;
                 }
 
-                void addFirst(U *d) {
+                void addFirst(U d) {
                         Node *n = new Node(d);
                         if(len == 0) {
                                 head = tail = n;
@@ -80,7 +84,7 @@ template<typename U> class DoubleLinkedList {
                         len++;
                 }
 
-                void addLast(U *d) {
+                void addLast(U d) {
                         Node *n = new Node(d);
                         if(len == 0) {
                                 head = tail = n;
@@ -93,7 +97,7 @@ template<typename U> class DoubleLinkedList {
                         len++;
                 }
 
-                void add(int index, U *d) {
+                void add(int index, U d) {
                         if(index < 0 || index > len) {
                                 throw std::invalid_argument("Index out of bounds");
                         }
@@ -112,7 +116,7 @@ template<typename U> class DoubleLinkedList {
                        
                 }
 
-                void add(U* target, U* d) {
+                void add(U target, U d) {
 
                         if(len == 0) {
                                 throw std::exception("Empty List");
@@ -140,7 +144,7 @@ template<typename U> class DoubleLinkedList {
                         }
                 }
 
-                U* removeFirst() {
+                U removeFirst() {
                         if(isEmpty()) {
                                 throw std::exception("Empty list");
                         }
@@ -158,7 +162,7 @@ template<typename U> class DoubleLinkedList {
                         return retVal;
                 }
                  
-                U* removeLast() {
+                U removeLast() {
                         if(isEmpty()) {
                                 throw std::exception("Empty list");
                         }
@@ -176,7 +180,7 @@ template<typename U> class DoubleLinkedList {
                         return retVal;
                 }
 
-                U* remove(int index) {
+                U remove(int index) {
                         checkIndex(index);
                         if(index == 0) {
                                 return removeFirst();
@@ -191,7 +195,7 @@ template<typename U> class DoubleLinkedList {
                         }
                 }
 
-                U* remove(U* target) {
+                U remove(U target) {
                         if(head->data == target) {
                                 return removeFirst();
                         }
@@ -211,7 +215,7 @@ template<typename U> class DoubleLinkedList {
                         }
                 }
 
-                U* get(int index) {
+                U get(int index) {
                         checkIndex(index);
                         if(index == 0) {
                                 return head->data;
@@ -222,7 +226,7 @@ template<typename U> class DoubleLinkedList {
                         return loopToIndex(index)->data;
                 }
 
-                void set(U* d, int index) {
+                void set(U d, int index) {
                        checkIndex(index);
                        if(index == 0) {
                                 head->data = d;
@@ -236,82 +240,31 @@ template<typename U> class DoubleLinkedList {
                         }
                 }
 
-                class DLLIterator {
-                        friend class DoubleLinkedList;
+               class DLLIterator {
                         private:
                                 Node *itrPtr;
-                                DoubleLinkedList *itrList;
-                                int itrIndex;
-
-                                bool checkListPointer(const DLLIterator& otherItr) const {
-                                       return itrList == otherItr.itrList;
-                                }
-
-                        
-                        public:
-                                DLLIterator(): itrPtr{nullptr}, itrList{nullptr}, itrIndex{-1} {};
-
-                                DLLIterator(DoubleLinkedList *list) {
-                                        DLLIterator(list, 0);
-                                }
-
-                                DLLIterator(DoubleLinkedList *list, int index) {
-                                        if(index < 0 || index > size) {
-                                                throw std::invalid_argument("index out of bounds");
-                                        }
-                                        itrList = list;
-                                        itrIndex = index;
-                                        if(index == list->len) {
-                                                itrPtr == nullptr;
-                                        }
-                                        else {
-                                                Node *current = list->head;
-                                                bool forward = true;
-                                                if(index > list->len/2) {
-                                                        current = list->tail;
-                                                        forward = false;
-                                                }
-
-                                                for(int i = 0; i > index; i++) {
-                                                        current = forward ? current->next : current->prev;
-                                                }
-                                                itrPtr = current;
-                                        }
-                                }
 
                                 void forward() {
-                                        itrPtr = itrPtr->next;
-                                        itrIndex++;
+                                itrPtr = itrPtr->next;
                                 }
 
                                 void backward() {
                                         itrPtr = itrPtr->prev;
-                                        itrIndex--;
                                 }
 
+                        public:
+                                DLLIterator(): itrPtr(nullptr) {};
+
+                                DLLIterator(DoubleLinkedList *list): itrPtr(list->head) {};
+
                                 bool operator!=(const DLLIterator& otherItr) const {
-                                        return checkListPointer(otherItr) && otherItr.itrIndex != itrIndex;
+                                        return otherItr.itrPtr != itrPtr;
                                 }
 
                                 bool operator==(const DLLIterator& otherItr) const {
-                                        return checkListPointer(otherItr) && otherItr.itrIndex == itrIndex;
+                                        return  otherItr.itrPtr == itrPtr;
                                 }
 
-                                bool operator>(const DLLIterator& otherItr) const {
-                                        return checkListPointer(otherItr) && otherItr.itrIndex > itrIndex;
-                                }
-
-                                bool operator>=(const DLLIterator& otherItr) const {
-                                        return (*this)>otherItr || (*this)==otherItr;
-                                }
-
-                                bool operator<(const DLLIterator& otherItr) const {
-                                        return checkListPointer(otherItr) && otherItr.itrIndex < itrIndex;
-                                }
-
-                                bool operator<=(const DLLIterator& otherItr) const {
-                                        return (*this)<otherItr || (*this)==otherItr;
-                                }
 
                                 DLLIterator& operator++() {
                                         forward();
@@ -338,6 +291,10 @@ template<typename U> class DoubleLinkedList {
                                 U& operator*() {
                                         return itrPtr->data;
                                 }
+
+                                U* operator->() {
+                                        return &itrPtr->data;
+                                }
                 };
 
                 DLLIterator begin() {
@@ -345,11 +302,7 @@ template<typename U> class DoubleLinkedList {
                 }
 
                 DLLIterator end() {
-                        return DLLIterator(this, len);
-                }
-
-                DLLIterator iterator(int index) {
-                        return DLLIterator(this, index);
+                        return DLLIterator();
                 }
 
 };
@@ -360,9 +313,12 @@ int main() {
         int *ptr = &i;
         int j = 3;
         int *ptr2 = &j;
-        DoubleLinkedList<int> *list = new DoubleLinkedList<int>();
+        DoubleLinkedList<int*> *list = new DoubleLinkedList<int*>();
         list->addFirst(ptr);
         list->add(1, ptr2);
         std::cout << "Value stored in list at index 1 is " <<  *list->get(1) << "\n";
+        for(DoubleLinkedList<int*>::DLLIterator start = list->begin(); start != list->end(); start++) {
+                std::cout << "Value is " << *(*start) << "\n";
+        }
         return 0;
 }

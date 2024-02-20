@@ -39,4 +39,5 @@ namespace ds::linear {
     template<typename T>
     class array_list: public list<T> {};
 
+
 }

@@ -1,4 +1,4 @@
-#include "linear.hpp"
+#include "list.hpp"
 
 namespace ds::linear {
     template<typename T>
@@ -170,17 +170,19 @@ namespace ds::linear {
             }
 
             bidirectional_iterator_ insert(list_iterator itr, T&& data, unsigned int count) {
-                node<T> *new_itr_node;
-                for(int i = 0; i < count; i++) {
-                    new_itr_node = insert_at(itr->get_ptr(), data);
+                node<T> *new_itr_node = insert_at(itr->get_ptr(), data);
+                for(int i = 0; i < count-1; i++) {
+                    insert_at(itr->get_ptr(), data);
                 }
                 return list_iterator(new_itr_node);
             }
 
             bidirectional_iterator_ insert(list_iterator itr, bidirectional_iterator_ begin, bidirectional_iterator_ end) {
-                node<T> *new_itr_node;
-                for(bidirectional_iterator_ pos = begin; pos != end; pos++) {
-                    new_itr_node = insert_at(itr->get_ptr(), *pos);
+                bidirectional_iterator_ pos = begin;
+                node<T> *new_itr_node = insert_at(itr->get_ptr(), *pos);
+                pos++;
+                for(; pos != end; pos++) {
+                    insert_at(itr->get_ptr(), *pos);
                 }
                 return list_iterator(new_itr_node);
             }

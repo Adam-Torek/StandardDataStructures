@@ -1,7 +1,8 @@
 #include <iostream>
 #include <stdexcept>
+#include "linear/array.hpp"
 
-
+using namespace ds::linear;
 
 template<typename U> class DoubleLinkedList {
         private:
@@ -308,17 +309,13 @@ template<typename U> class DoubleLinkedList {
 };
 
 int main() {
-
-        int i = 4;
-        int *ptr = &i;
-        int j = 3;
-        int *ptr2 = &j;
-        DoubleLinkedList<int*> *list = new DoubleLinkedList<int*>();
-        list->addFirst(ptr);
-        list->add(1, ptr2);
-        std::cout << "Value stored in list at index 1 is " <<  *list->get(1) << "\n";
-        for(DoubleLinkedList<int*>::DLLIterator start = list->begin(); start != list->end(); start++) {
-                std::cout << "Value is " << *(*start) << "\n";
+        array<int, 10> arr;
+        arr[0] = 1;
+        arr[2] = 2;
+        int i = 0;
+        for(array<int, 10>::const_iterator start = arr.cbegin(); start != arr.cend(); start++) {
+                std::cout << "Value at position " << i << " is " << *start << std::endl;
+                i++;
         }
         return 0;
 }

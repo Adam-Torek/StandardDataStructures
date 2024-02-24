@@ -6,6 +6,10 @@
 			[
 				{
 					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
 					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
 					{
@@ -13,6 +17,21 @@
 					},
 					"projectIndex" : 0,
 					"source" : ".",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "linear",
+					"jsonFile" : "directory-linear-Debug-5b98316104da589fac27.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.9.1"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "linear",
 					"targetIndexes" : 
 					[
 						0
@@ -25,21 +44,30 @@
 				{
 					"directoryIndexes" : 
 					[
-						0
+						0,
+						1
 					],
 					"name" : "StandardDataStructures",
 					"targetIndexes" : 
 					[
-						0
+						0,
+						1
 					]
 				}
 			],
 			"targets" : 
 			[
 				{
+					"directoryIndex" : 1,
+					"id" : "Linear::@13d78f5c33f6b1946a6e",
+					"jsonFile" : "target-Linear-Debug-b6a39959a29314cad400.json",
+					"name" : "Linear",
+					"projectIndex" : 0
+				},
+				{
 					"directoryIndex" : 0,
 					"id" : "StandardDataStructures::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-StandardDataStructures-Debug-d36e9a6a302d289d9480.json",
+					"jsonFile" : "target-StandardDataStructures-Debug-aa147fed578e51a7a6ce.json",
 					"name" : "StandardDataStructures",
 					"projectIndex" : 0
 				}

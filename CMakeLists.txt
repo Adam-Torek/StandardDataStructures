@@ -1,4 +1,6 @@
 cmake_minimum_required(VERSION 3.9.1)
-project(StandardDataStructures VERSION 0.1)
 set(CMAKE_CXX_STANDARD 14)
+project(StandardDataStructures VERSION 0.1)
+add_subdirectory(linear)
 add_executable(${PROJECT_NAME} main.cpp)
+target_link_libraries(StandardDataStructures Linear)

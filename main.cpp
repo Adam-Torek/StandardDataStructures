@@ -312,9 +312,16 @@ int main() {
         array<int, 10> arr;
         arr[0] = 1;
         arr[2] = 2;
+        array<int, 10> arr2;
+        arr2[0] = 1;
+        arr2[2] = 2;
+        bool comp_result = (arr2 == arr);
+        std::cout << "Result of comparison between arr1 and arr2" << comp_result << "\n";
         int i = 0;
+        array<int, 10>::const_iterator c_r_itr = arr.cbegin();
+        std::cout << "Reverse iterator value at index is " << c_r_itr[-1] << " \n";
         for(array<int, 10>::const_iterator start = arr.cbegin(); start != arr.cend(); start++) {
-                std::cout << "Value at position " << i << " is " << *start << std::endl;
+                std::cout << "Value at position " << i << " is " << *start << " \n";
                 i++;
         }
         return 0;

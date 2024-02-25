@@ -123,6 +123,9 @@
 		},
 		{
 			"path" : "linear/CMakeLists.txt"
+		},
+		{
+			"path" : "utils/CMakeLists.txt"
 		}
 	],
 	"kind" : "cmakeFiles",

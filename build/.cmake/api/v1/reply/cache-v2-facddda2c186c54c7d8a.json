@@ -755,7 +755,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "2"
+			"value" : "3"
 		},
 		{
 			"name" : "CMAKE_OBJCOPY",
@@ -1178,6 +1178,18 @@
 			"value" : "FALSE"
 		},
 		{
+			"name" : "Linear_LIB_DEPENDS",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Dependencies for the target"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "general;Utils;"
+		},
+		{
 			"name" : "StandardDataStructures_BINARY_DIR",
 			"properties" : 
 			[
@@ -1212,6 +1224,18 @@
 			],
 			"type" : "STATIC",
 			"value" : "/home/adam-torek/StandardDataStructures"
+		},
+		{
+			"name" : "Utils",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a library."
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "Utils-NOTFOUND"
 		}
 	],
 	"kind" : "cache",

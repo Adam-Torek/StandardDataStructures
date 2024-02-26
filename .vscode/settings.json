@@ -6,6 +6,8 @@
         "utility": "cpp",
         "string": "cpp",
         "iostream": "cpp",
-        "ostream": "cpp"
-    }
+        "ostream": "cpp",
+        "*.tcc": "cpp"
+    },
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools"
 }

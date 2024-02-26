@@ -11,6 +11,7 @@ namespace ds::linear
             using pointer_type = value_type*;
             using reference_type = value_type&;
             using difference_type = std::ptrdiff_t;
+            using iterator_category = std::random_access_iterator_tag;
 
             array_iterator(pointer_type ptr): itr_ptr(ptr) {};
             array_iterator(const array_iterator& other) = default;
@@ -132,6 +133,7 @@ namespace ds::linear
             using pointer_type = value_type*;
             using reference_type = value_type&;
             using difference_type = std::ptrdiff_t;
+            using iterator_category = std::reverse_iterator<array>;
 
             reverse_array_iterator(pointer_type ptr): array_iterator<array>(ptr){}
             reverse_array_iterator(const reverse_array_iterator& other) = default;
@@ -218,6 +220,21 @@ namespace ds::linear
        
         private: 
             T arr[SIZE];
+
+            void copy_elements(const T* other) {
+                for(int i = 0; i < SIZE; i++) {
+                    arr[i] = other[i];
+                }
+            }
+
+            void copy_elements(const std::initializer_list<T>& other) {
+                int i = 0;
+                for(const T& element : other) {
+                    arr[i] = element;
+                    i++;
+                }
+            }
+            
         public:
             using value_type = T;
             using pointer_type = value_type*;
@@ -229,7 +246,23 @@ namespace ds::linear
 
             array() {
                 memset(arr, 0, sizeof(T)*SIZE);
-            };
+            }
+
+            array(const std::initializer_list<T>& lst) {
+               copy_elements(lst);
+            }
+
+            array(const array<T, SIZE>& other) {
+                copy_elements(other.data());
+            }
+
+            array<T, SIZE>& operator=(const std::initializer_list<T>& lst) {
+                copy_elements(lst);
+            }
+
+            array<T, SIZE>& operator=(const array<T, SIZE>& other) {
+                copy_elements(other);
+            }
 
             const unsigned int size() const {
                 return SIZE;
@@ -307,7 +340,26 @@ namespace ds::linear
                 return const_reverse_iterator(&arr[-1]);
             }
 
+             void fill(const T& d) {
+                for(int i = 0; i < SIZE; i++) {
+                    arr[i] = d;
+                }
+            }
+
+            void swap(array<T, SIZE>& other) {
+                T* d = other.data();
+                for(int i = 0; i < SIZE; i++) {
+                    std::swap(this.arr[i], d[i]);
+                }
+            }
+
         };
+
+        template<typename T, unsigned int SIZE> 
+        void swap(const array<T,SIZE>& left, const array<T,SIZE>& right)
+        {
+            left.swap(right);
+        }
 
         template<typename T, unsigned int SIZE>
         bool operator<(const array<T, SIZE>& left, const array<T, SIZE>& right) {

@@ -51,7 +51,7 @@
 					"fragment" : "-g"
 				},
 				{
-					"fragment" : "-std=gnu++14"
+					"fragment" : "-std=gnu++20"
 				}
 			],
 			"language" : "CXX",
@@ -61,7 +61,7 @@
 				[
 					1
 				],
-				"standard" : "14"
+				"standard" : "20"
 			},
 			"sourceIndexes" : 
 			[
@@ -92,15 +92,6 @@
 			{
 				"fragment" : "",
 				"role" : "flags"
-			},
-			{
-				"backtrace" : 2,
-				"fragment" : "-L/home/adam-torek/StandardDataStructures/linear/../utils",
-				"role" : "libraryPath"
-			},
-			{
-				"fragment" : "-Wl,-rpath,/home/adam-torek/StandardDataStructures/linear/../utils",
-				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,

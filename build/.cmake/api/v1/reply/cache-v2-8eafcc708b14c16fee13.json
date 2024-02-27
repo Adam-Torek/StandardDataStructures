@@ -1190,6 +1190,30 @@
 			"value" : "general;Utils;"
 		},
 		{
+			"name" : "NAME",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a library."
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "NAME-NOTFOUND"
+		},
+		{
+			"name" : "NAMES",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a library."
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "NAMES-NOTFOUND"
+		},
+		{
 			"name" : "StandardDataStructures_BINARY_DIR",
 			"properties" : 
 			[

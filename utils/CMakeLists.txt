@@ -1,1 +1,1 @@
-add_library(Utils utils.hpp dummy.cpp)
+add_library(Utils utils.hpp utils.cpp)

@@ -51,7 +51,7 @@
 					"fragment" : "-g"
 				},
 				{
-					"fragment" : "-std=gnu++20"
+					"fragment" : "-std=gnu++11"
 				}
 			],
 			"language" : "CXX",
@@ -61,7 +61,7 @@
 				[
 					1
 				],
-				"standard" : "20"
+				"standard" : "11"
 			},
 			"sourceIndexes" : 
 			[

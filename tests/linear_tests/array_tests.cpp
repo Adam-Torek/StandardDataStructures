@@ -1,8 +1,31 @@
 #include "../../linear/array.hpp"
+#include <iostream>
 
 using namespace ds::linear;
 
+typedef struct test_stats {
+    public:
+        unsigned int tests_passed;
+        unsigned int tests_failed;
+        unsigned int total_tests;
+} test_stats;
+
 enum comp_type {LESS_THAN, GREATER_THAN, LESS_THAN_EQUAL, GREATER_THAN_EQUAL, EQUAL, NOT_EQUAL};
+
+test_stats stats;
+
+
+void run_test(bool *test_func(void), std::string test_name) {
+    bool result = test_func();
+    std::cout << test_name << ": " << (result ? "PASS" : "FAIL") << "\n";
+    if(result) {
+        stats.tests_passed++;
+    } else {
+        stats.tests_failed++;
+    }
+    stats.total_tests++;
+}
+
 
 template<typename T, unsigned int SIZE> 
 void array_compare(array<T, SIZE>& one, array<T, SIZE>& two, comp_type comp)

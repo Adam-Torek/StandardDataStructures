@@ -363,7 +363,7 @@ namespace ds::linear
 
         template<typename T, unsigned int SIZE>
         bool operator<(const array<T, SIZE>& left, const array<T, SIZE>& right) {
-                return ds::utils::elementwise_compare(left.cbegin(), left.cend(), right.cbegin(), right.cend());
+                return std::lexicogrpahical_compare(left.cbegin(), left.cend(), right.cbegin(), right.cend());
         }
 
         template<typename T, unsigned int SIZE>

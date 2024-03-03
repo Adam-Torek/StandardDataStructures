@@ -31,13 +31,13 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 7,
+				"line" : 16,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 8,
+				"line" : 17,
 				"parent" : 0
 			}
 		]
@@ -51,7 +51,7 @@
 					"fragment" : "-g"
 				},
 				{
-					"fragment" : "-std=gnu++11"
+					"fragment" : "-std=gnu++14"
 				}
 			],
 			"language" : "CXX",
@@ -61,7 +61,7 @@
 				[
 					1
 				],
-				"standard" : "11"
+				"standard" : "14"
 			},
 			"sourceIndexes" : 
 			[
@@ -73,11 +73,11 @@
 	[
 		{
 			"backtrace" : 2,
-			"id" : "Linear::@13d78f5c33f6b1946a6e"
+			"id" : "Utils::@c810615cce0f7acb82dc"
 		},
 		{
 			"backtrace" : 2,
-			"id" : "Utils::@c810615cce0f7acb82dc"
+			"id" : "Linear::@13d78f5c33f6b1946a6e"
 		}
 	],
 	"id" : "StandardDataStructures::@6890427a1f51a3e7e1df",

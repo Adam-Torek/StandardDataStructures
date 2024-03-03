@@ -39,7 +39,7 @@
 					"fragment" : "-g"
 				},
 				{
-					"fragment" : "-std=gnu++11"
+					"fragment" : "-std=gnu++14"
 				}
 			],
 			"language" : "CXX",
@@ -49,7 +49,7 @@
 				[
 					1
 				],
-				"standard" : "11"
+				"standard" : "14"
 			},
 			"sourceIndexes" : 
 			[

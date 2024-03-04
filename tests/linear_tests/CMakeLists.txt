@@ -1,0 +1,2 @@
+add_library(LinearTests array_tests.cpp)
+target_include_directories(LinearTests PUBLIC StandardDataStructures)

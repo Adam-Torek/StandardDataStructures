@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "StandardDataStructures"
+			"path" : "UnitTests"
 		}
 	],
 	"backtrace" : 1,
@@ -25,7 +25,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 6,
+				"line" : 14,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 15,
 				"parent" : 0
 			},
 			{
@@ -37,7 +43,7 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 17,
+				"line" : 18,
 				"parent" : 0
 			}
 		]
@@ -54,12 +60,38 @@
 					"fragment" : "-std=gnu++14"
 				}
 			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 3,
+					"path" : "/home/adam-torek/StandardDataStructures/tests/linear_tests/StandardDataStructures"
+				}
+			],
 			"language" : "CXX",
 			"languageStandard" : 
 			{
 				"backtraces" : 
 				[
-					1
+					4,
+					4,
+					4,
+					4,
+					4,
+					4,
+					4,
+					4,
+					4,
+					4,
+					4,
+					4,
+					4,
+					4,
+					4,
+					4,
+					4,
+					4,
+					4,
+					4
 				],
 				"standard" : "14"
 			},
@@ -76,11 +108,15 @@
 			"id" : "Utils::@c810615cce0f7acb82dc"
 		},
 		{
-			"backtrace" : 2,
-			"id" : "Linear::@13d78f5c33f6b1946a6e"
+			"backtrace" : 3,
+			"id" : "Tests::@a44f0ac069e85531cdee"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "LinearTests::@20798a00a364ba4b6570"
 		}
 	],
-	"id" : "StandardDataStructures::@6890427a1f51a3e7e1df",
+	"id" : "UnitTests::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -95,19 +131,32 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "linear/libLinear.a",
+				"fragment" : "utils/libUtils.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "utils/libUtils.a",
+				"fragment" : "tests/libTests.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "/usr/local/lib/libCatch2Main.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "tests/linear_tests/libLinearTests.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/local/lib/libCatch2.a",
 				"role" : "libraries"
 			}
 		],
 		"language" : "CXX"
 	},
-	"name" : "StandardDataStructures",
-	"nameOnDisk" : "StandardDataStructures",
+	"name" : "UnitTests",
+	"nameOnDisk" : "UnitTests",
 	"paths" : 
 	{
 		"build" : ".",

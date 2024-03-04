@@ -1,16 +1,8 @@
 #include <iostream>
 #include <stdexcept>
-#include "linear/array.hpp"
+#include <catch2/catch_test_macros.hpp>
+#include "tests/linear_tests/array_tests.cpp"
 
-using namespace ds::linear;
-
-
-int main() {
-        array<int, 5> arr = {1,2,3,4,5};
-        int i = 0;
-        for(array<int, 5>::const_iterator start = arr.cbegin(); start != arr.cend(); start++) {
-                std::cout << "Value at position " << i << " is " << *start << " \n";
-                i++;
-        }
-        return 0;
+TEST_CASE("This is a simple test","[SimpleTest]") {
+    REQUIRE(2 == 2);
 }

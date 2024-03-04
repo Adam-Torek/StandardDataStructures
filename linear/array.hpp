@@ -1,6 +1,8 @@
 #include <cstddef>
 #include <cstring>
 #include "../utils/utils.hpp"
+#include <initializer_list>
+#include <algorithm>
 
 namespace ds::linear
 {
@@ -363,7 +365,7 @@ namespace ds::linear
 
         template<typename T, unsigned int SIZE>
         bool operator<(const array<T, SIZE>& left, const array<T, SIZE>& right) {
-                return std::lexicogrpahical_compare(left.cbegin(), left.cend(), right.cbegin(), right.cend());
+                return std::lexicographical_compare(left.cbegin(), left.cend(), right.cbegin(), right.cend());
         }
 
         template<typename T, unsigned int SIZE>

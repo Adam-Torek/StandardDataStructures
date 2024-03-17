@@ -1,0 +1,2 @@
+/usr/bin/ar qc libStandardDataStructures.a CMakeFiles/StandardDataStructures.dir/dummy.cpp.o
+/usr/bin/ranlib libStandardDataStructures.a

@@ -1,0 +1,1 @@
+add_library(Linear "array" "dummy.cpp")

@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/home/adam-torek/StandardDataStructures/build",
+  "command": "g++  -I/home/adam-torek/StandardDataStructures -I/home/adam-torek/StandardDataStructures/data_structures -fPIC -g -D DEBUG -Wall -Wfatal-errors -fstrict-aliasing -g -std=gnu++14 -o CMakeFiles/Tester.dir/Tests/main.cpp.o -c /home/adam-torek/StandardDataStructures/Tests/main.cpp",
+  "file": "/home/adam-torek/StandardDataStructures/Tests/main.cpp"
+},
+{
+  "directory": "/home/adam-torek/StandardDataStructures/build/data_structures",
+  "command": "g++  -I/home/adam-torek/StandardDataStructures/data_structures -fPIC -g -D DEBUG -Wall -Wfatal-errors -fstrict-aliasing -g -std=gnu++14 -o CMakeFiles/DataStructures.dir/dummy.cpp.o -c /home/adam-torek/StandardDataStructures/data_structures/dummy.cpp",
+  "file": "/home/adam-torek/StandardDataStructures/data_structures/dummy.cpp"
+},
+{
+  "directory": "/home/adam-torek/StandardDataStructures/build/data_structures/linear",
+  "command": "g++   -fPIC -g -D DEBUG -Wall -Wfatal-errors -fstrict-aliasing -g -std=gnu++14 -o CMakeFiles/Linear.dir/dummy.cpp.o -c /home/adam-torek/StandardDataStructures/data_structures/linear/dummy.cpp",
+  "file": "/home/adam-torek/StandardDataStructures/data_structures/linear/dummy.cpp"
+}
+]

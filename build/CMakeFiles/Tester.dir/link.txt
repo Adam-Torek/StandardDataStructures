@@ -1,0 +1,1 @@
+g++ -fPIC -g -D DEBUG -Wall -Wfatal-errors -fstrict-aliasing -g CMakeFiles/Tester.dir/Tests/main.cpp.o -o Tester  data_structures/libDataStructures.a /usr/local/lib/libCatch2Main.a data_structures/linear/libLinear.a /usr/local/lib/libCatch2.a 

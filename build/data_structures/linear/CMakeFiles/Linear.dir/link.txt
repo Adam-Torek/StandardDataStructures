@@ -1,0 +1,2 @@
+/usr/bin/ar qc libLinear.a CMakeFiles/Linear.dir/dummy.cpp.o
+/usr/bin/ranlib libLinear.a

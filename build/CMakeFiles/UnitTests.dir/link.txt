@@ -1,0 +1,1 @@
+g++ -fPIC -g -D DEBUG -Wall -Wfatal-errors -fstrict-aliasing -g CMakeFiles/UnitTests.dir/Tests/main.cpp.o -o UnitTests  data_structures/libDataStructures.a data_structures/linear/libLinear.a 

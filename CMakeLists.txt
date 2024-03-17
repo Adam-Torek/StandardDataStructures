@@ -1,25 +1,25 @@
-cmake_minimum_required(VERSION 3.9.1)
+cmake_minimum_required(VERSION 3.11)
+
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-project(StandardDataStructures VERSION 0.1 LANGUAGES CXX)
+project(StandardDataStructures VERSION 0.1)
 
-add_subdirectory(linear)
-add_subdirectory(utils)
-add_subdirectory(tests)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/lib)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/build)
+set(CMAKE_PREFIX_PATH ${CMAKE_SOURCE_DIR})
 
-add_library(${PROJECT_NAME} main.cpp)
-target_link_libraries(${PROJECT_NAME} PRIVATE Utils)
-target_link_libraries(${PROJECT_NAME} PUBLIC Linear)
+set(CMAKE_CXX_COMPILER g++)
+SET(CMAKE_CXX_FLAGS "-fPIC -g -D DEBUG -Wall -Wfatal-errors -fstrict-aliasing")
 
-add_executable(UnitTests main.cpp)
-target_link_libraries(UnitTests PRIVATE Utils)
-target_link_libraries(UnitTests PRIVATE Tests)
-target_link_libraries(${PROJECT_NAME} PUBLIC Linear)
-target_link_libraries(UnitTests PRIVATE Catch2::Catch2WithMain)
+MESSAGE("${CMAKE_SOURCE_DIR}/data_structures")
 
+add_subdirectory(data_structures)
+add_executable(Tester Tests/main.cpp)
+target_include_directories(Tester PUBLIC ${CMAKE_SOURCE_DIR})
+target_link_libraries(Tester PUBLIC DataStructures)
+target_link_libraries(Tester PRIVATE Catch2::Catch2WithMain)
 
 find_package(Catch2 REQUIRED)
 
 include(CTest)
 include(ParseAndAddCatchTests)
-ParseAndAddCatchTests(UnitTests)

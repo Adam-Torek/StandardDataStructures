@@ -62,7 +62,7 @@ UpdateOptions:
 UpdateType: git
 
 # Compiler info
-Compiler: /usr/bin/g++
+Compiler: g++
 CompilerVersion: 11.4.0
 
 # Dynamic analysis (MemCheck)

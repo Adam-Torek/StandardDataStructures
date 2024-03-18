@@ -11,15 +11,15 @@ set(CMAKE_PREFIX_PATH ${CMAKE_SOURCE_DIR})
 set(CMAKE_CXX_COMPILER g++)
 SET(CMAKE_CXX_FLAGS "-fPIC -g -D DEBUG -Wall -Wfatal-errors -fstrict-aliasing")
 
-MESSAGE("${CMAKE_SOURCE_DIR}/data_structures")
+find_package(Catch2 3 REQUIRED)
 
 add_subdirectory(data_structures)
 add_executable(Tester Tests/main.cpp)
-target_include_directories(Tester PUBLIC ${CMAKE_SOURCE_DIR})
-target_link_libraries(Tester PUBLIC DataStructures)
+target_include_directories(Tester PRIVATE ${CMAKE_SOURCE_DIR})
+target_link_libraries(Tester PRIVATE DataStructures)
 target_link_libraries(Tester PRIVATE Catch2::Catch2WithMain)
 
-find_package(Catch2 REQUIRED)
-
 include(CTest)
-include(ParseAndAddCatchTests)
+include(Catch)
+catch_discover_tests(Tester)
+

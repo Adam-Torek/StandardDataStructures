@@ -1,0 +1,5 @@
+if(EXISTS "/home/adam-torek/StandardDataStructures/build/Tester-b12d07c_tests.cmake")
+  include("/home/adam-torek/StandardDataStructures/build/Tester-b12d07c_tests.cmake")
+else()
+  add_test(Tester_NOT_BUILT-b12d07c Tester_NOT_BUILT-b12d07c)
+endif()

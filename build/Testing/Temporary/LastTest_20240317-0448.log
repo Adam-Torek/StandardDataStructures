@@ -1,3 +1,23 @@
-Start testing: Mar 16 22:48 MDT
+Start testing: Mar 17 16:24 MDT
 ----------------------------------------------------------
-End testing: Mar 16 22:48 MDT
+1/1 Testing: Test Empty Array
+1/1 Test: Test Empty Array
+Command: "/home/adam-torek/StandardDataStructures/build/Tester" "Test Empty Array"
+Directory: /home/adam-torek/StandardDataStructures/build
+"Test Empty Array" start time: Mar 17 16:24 MDT
+Output:
+----------------------------------------------------------
+Filters: "Test Empty Array"
+Randomness seeded to: 2227193824
+===============================================================================
+All tests passed (1 assertion in 1 test case)
+
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"Test Empty Array" end time: Mar 17 16:24 MDT
+"Test Empty Array" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Mar 17 16:24 MDT

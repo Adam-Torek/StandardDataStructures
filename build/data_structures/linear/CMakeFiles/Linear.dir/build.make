@@ -73,15 +73,15 @@ data_structures/linear/CMakeFiles/Linear.dir/dummy.cpp.o: data_structures/linear
 data_structures/linear/CMakeFiles/Linear.dir/dummy.cpp.o: ../data_structures/linear/dummy.cpp
 data_structures/linear/CMakeFiles/Linear.dir/dummy.cpp.o: data_structures/linear/CMakeFiles/Linear.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/adam-torek/StandardDataStructures/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object data_structures/linear/CMakeFiles/Linear.dir/dummy.cpp.o"
-	cd /home/adam-torek/StandardDataStructures/build/data_structures/linear && g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT data_structures/linear/CMakeFiles/Linear.dir/dummy.cpp.o -MF CMakeFiles/Linear.dir/dummy.cpp.o.d -o CMakeFiles/Linear.dir/dummy.cpp.o -c /home/adam-torek/StandardDataStructures/data_structures/linear/dummy.cpp
+	cd /home/adam-torek/StandardDataStructures/build/data_structures/linear && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT data_structures/linear/CMakeFiles/Linear.dir/dummy.cpp.o -MF CMakeFiles/Linear.dir/dummy.cpp.o.d -o CMakeFiles/Linear.dir/dummy.cpp.o -c /home/adam-torek/StandardDataStructures/data_structures/linear/dummy.cpp
 
 data_structures/linear/CMakeFiles/Linear.dir/dummy.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Linear.dir/dummy.cpp.i"
-	cd /home/adam-torek/StandardDataStructures/build/data_structures/linear && g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/adam-torek/StandardDataStructures/data_structures/linear/dummy.cpp > CMakeFiles/Linear.dir/dummy.cpp.i
+	cd /home/adam-torek/StandardDataStructures/build/data_structures/linear && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/adam-torek/StandardDataStructures/data_structures/linear/dummy.cpp > CMakeFiles/Linear.dir/dummy.cpp.i
 
 data_structures/linear/CMakeFiles/Linear.dir/dummy.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Linear.dir/dummy.cpp.s"
-	cd /home/adam-torek/StandardDataStructures/build/data_structures/linear && g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/adam-torek/StandardDataStructures/data_structures/linear/dummy.cpp -o CMakeFiles/Linear.dir/dummy.cpp.s
+	cd /home/adam-torek/StandardDataStructures/build/data_structures/linear && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/adam-torek/StandardDataStructures/data_structures/linear/dummy.cpp -o CMakeFiles/Linear.dir/dummy.cpp.s
 
 # Object files for target Linear
 Linear_OBJECTS = \

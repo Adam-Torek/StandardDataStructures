@@ -1,0 +1,5 @@
+if(EXISTS "/home/adam-torek/StandardDataStructures/build/Tester[1]_tests.cmake")
+  include("/home/adam-torek/StandardDataStructures/build/Tester[1]_tests.cmake")
+else()
+  add_test(Tester_NOT_BUILT Tester_NOT_BUILT)
+endif()

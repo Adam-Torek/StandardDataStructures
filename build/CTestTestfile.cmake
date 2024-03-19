@@ -4,5 +4,6 @@
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
-include("/home/adam-torek/StandardDataStructures/build/Tester-b12d07c_include.cmake")
+include("/home/adam-torek/StandardDataStructures/build/Tester[1]_include.cmake")
+subdirs("_deps/googletest-build")
 subdirs("data_structures")

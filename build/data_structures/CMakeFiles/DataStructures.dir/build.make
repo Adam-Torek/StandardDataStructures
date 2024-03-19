@@ -73,15 +73,15 @@ data_structures/CMakeFiles/DataStructures.dir/dummy.cpp.o: data_structures/CMake
 data_structures/CMakeFiles/DataStructures.dir/dummy.cpp.o: ../data_structures/dummy.cpp
 data_structures/CMakeFiles/DataStructures.dir/dummy.cpp.o: data_structures/CMakeFiles/DataStructures.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/adam-torek/StandardDataStructures/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object data_structures/CMakeFiles/DataStructures.dir/dummy.cpp.o"
-	cd /home/adam-torek/StandardDataStructures/build/data_structures && g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT data_structures/CMakeFiles/DataStructures.dir/dummy.cpp.o -MF CMakeFiles/DataStructures.dir/dummy.cpp.o.d -o CMakeFiles/DataStructures.dir/dummy.cpp.o -c /home/adam-torek/StandardDataStructures/data_structures/dummy.cpp
+	cd /home/adam-torek/StandardDataStructures/build/data_structures && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT data_structures/CMakeFiles/DataStructures.dir/dummy.cpp.o -MF CMakeFiles/DataStructures.dir/dummy.cpp.o.d -o CMakeFiles/DataStructures.dir/dummy.cpp.o -c /home/adam-torek/StandardDataStructures/data_structures/dummy.cpp
 
 data_structures/CMakeFiles/DataStructures.dir/dummy.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DataStructures.dir/dummy.cpp.i"
-	cd /home/adam-torek/StandardDataStructures/build/data_structures && g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/adam-torek/StandardDataStructures/data_structures/dummy.cpp > CMakeFiles/DataStructures.dir/dummy.cpp.i
+	cd /home/adam-torek/StandardDataStructures/build/data_structures && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/adam-torek/StandardDataStructures/data_structures/dummy.cpp > CMakeFiles/DataStructures.dir/dummy.cpp.i
 
 data_structures/CMakeFiles/DataStructures.dir/dummy.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DataStructures.dir/dummy.cpp.s"
-	cd /home/adam-torek/StandardDataStructures/build/data_structures && g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/adam-torek/StandardDataStructures/data_structures/dummy.cpp -o CMakeFiles/DataStructures.dir/dummy.cpp.s
+	cd /home/adam-torek/StandardDataStructures/build/data_structures && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/adam-torek/StandardDataStructures/data_structures/dummy.cpp -o CMakeFiles/DataStructures.dir/dummy.cpp.s
 
 # Object files for target DataStructures
 DataStructures_OBJECTS = \

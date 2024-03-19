@@ -1,4 +1,6 @@
 Tester:TEST 0 1
 Test 0 1
-Test Empty Array 1 0.00256972
+Test 0 0
+Test 0 0
+TestArray.TestEmptyArray 3 0.00238563
 ---

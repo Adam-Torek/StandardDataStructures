@@ -280,19 +280,24 @@ namespace ds::linear
             }
 
             pointer_type data() {
-                return &arr;
+                return arr;
             }
 
             const pointer_type data() const {
                 return &arr;
             }
 
-            value_type front() {
+            reference_type front() {
                 return arr[0];
             }
 
             reference_type back() {
-                return arr[SIZE-1];
+                if(SIZE > 0) {
+                    return arr[SIZE-1];
+                }
+                else {
+                    return arr[0];
+                }
             }
 
             reference_type at(unsigned int index) {

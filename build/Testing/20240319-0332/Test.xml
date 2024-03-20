@@ -21,42 +21,14 @@
 	TotalVirtualMemory="2047"
 	TotalPhysicalMemory="64188"
 	LogicalProcessorsPerPhysical="2"
-	ProcessorClockFrequency="3390.68"
+	ProcessorClockFrequency="4525.2"
 	>
 	<Testing>
-		<StartDateTime>Mar 18 22:07 MDT</StartDateTime>
-		<StartTestTime>1710821279</StartTestTime>
-		<TestList>
-			<Test>./TestArray.TestEmptyArray</Test>
-		</TestList>
-		<Test Status="passed">
-			<Name>TestArray.TestEmptyArray</Name>
-			<Path>.</Path>
-			<FullName>./TestArray.TestEmptyArray</FullName>
-			<FullCommandLine>/home/adam-torek/StandardDataStructures/build/Tester "--gtest_filter=TestArray.TestEmptyArray" "--gtest_also_run_disabled_tests"</FullCommandLine>
-			<Results>
-				<NamedMeasurement type="numeric/double" name="Execution Time">
-					<Value>0.00275875</Value>
-				</NamedMeasurement>
-				<NamedMeasurement type="numeric/double" name="Processors">
-					<Value>1</Value>
-				</NamedMeasurement>
-				<NamedMeasurement type="text/string" name="Completion Status">
-					<Value>Completed</Value>
-				</NamedMeasurement>
-				<NamedMeasurement type="text/string" name="Command Line">
-					<Value>/home/adam-torek/StandardDataStructures/build/Tester "--gtest_filter=TestArray.TestEmptyArray" "--gtest_also_run_disabled_tests"</Value>
-				</NamedMeasurement>
-				<NamedMeasurement type="text/string" name="Environment">
-					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
-				</NamedMeasurement>
-				<Measurement>
-					<Value encoding="base64" compression="gzip">eJyNkE9rwzAMxe/+FDo2h8TbddBDoaWHQjeS7RRCcWM1M/OfYMsb/fZLnBLawUp10kM/+z2pjNYq24ERyi4yOHlngH86g1xIYXJyHr94RcJK4eVakKjIx5aix8CPUWnJDxL7wDvnOo2EgfLg2yvJkxy7w+hRtC3bO8IX2CYE3ocJnJQm9LBMauW9OBdjtzE9nZNk9XKuBspL6Geg9HoMfelDVIQFq/O5GthqdxR6mqP9Vt5Zg3ZgkfLY/4Gv/5zTsBrKjz2kau6EnAh43d2hYPEEJmQPuE4kkCOhM/bYToTC59L92NuL/Xcp8MIWtz7DEm+rqtqsx1UntmC/HZSzhg==</Value>
-				</Measurement>
-			</Results>
-		</Test>
-		<EndDateTime>Mar 18 22:07 MDT</EndDateTime>
-		<EndTestTime>1710821279</EndTestTime>
+		<StartDateTime>Mar 19 17:36 MDT</StartDateTime>
+		<StartTestTime>1710891365</StartTestTime>
+		<TestList/>
+		<EndDateTime>Mar 19 17:36 MDT</EndDateTime>
+		<EndTestTime>1710891365</EndTestTime>
 		<ElapsedMinutes>0</ElapsedMinutes>
 	</Testing>
 </Site>

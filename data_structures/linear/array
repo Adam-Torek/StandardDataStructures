@@ -322,6 +322,7 @@ namespace ds::linear
 
             iterator end() {
                 return iterator(&arr[SIZE]);
+                
             }
 
             const_iterator cbegin() const {

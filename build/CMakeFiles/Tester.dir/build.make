@@ -94,6 +94,7 @@ Tester: CMakeFiles/Tester.dir/Tests/main.cpp.o
 Tester: CMakeFiles/Tester.dir/build.make
 Tester: data_structures/libDataStructures.a
 Tester: data_structures/linear/libLinear.a
+Tester: data_structures/utils/libUtils.a
 Tester: lib/libgtest_main.a
 Tester: lib/libgtest.a
 Tester: CMakeFiles/Tester.dir/link.txt

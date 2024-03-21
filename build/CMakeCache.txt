@@ -32,8 +32,8 @@ CMAKE_BUILD_TYPE:STRING=Debug
 //Enable/Disable color output during build.
 CMAKE_COLOR_MAKEFILE:BOOL=ON
 
-//CXX compiler
-CMAKE_CXX_COMPILER:STRING=/usr/bin/g++
+//No help, variable specified on the command line.
+CMAKE_CXX_COMPILER:FILEPATH=/usr/bin/g++
 
 //A wrapper around 'ar' adding the appropriate '--plugin' option
 // for the GCC compiler
@@ -297,7 +297,7 @@ Catch2_DIR:PATH=/usr/local/lib/cmake/Catch2
 DART_TESTING_TIMEOUT:STRING=1500
 
 //Dependencies for the target
-DataStructures_LIB_DEPENDS:STATIC=general;Linear;
+DataStructures_LIB_DEPENDS:STATIC=general;Linear;general;Utils;
 
 //Directory under which to collect all populated content
 FETCHCONTENT_BASE_DIR:PATH=/home/adam-torek/StandardDataStructures/build/_deps
@@ -566,7 +566,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=6
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=7
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

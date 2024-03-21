@@ -142,14 +142,14 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/adam-torek/StandardDataStructures/build/CMakeFiles /home/adam-torek/StandardDataStructures/build//CMakeFiles/progress.marks
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
+	cd /home/adam-torek/StandardDataStructures/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/adam-torek/StandardDataStructures/build/CMakeFiles /home/adam-torek/StandardDataStructures/build/data_structures/utils//CMakeFiles/progress.marks
+	cd /home/adam-torek/StandardDataStructures/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 data_structures/utils/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/adam-torek/StandardDataStructures/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 clean
+	cd /home/adam-torek/StandardDataStructures/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 data_structures/utils/clean
 .PHONY : clean
 
 # The main clean target
@@ -158,146 +158,56 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
+	cd /home/adam-torek/StandardDataStructures/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 data_structures/utils/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
+	cd /home/adam-torek/StandardDataStructures/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 data_structures/utils/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/adam-torek/StandardDataStructures/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named Tester
+# Convenience name for target.
+data_structures/utils/CMakeFiles/Utils.dir/rule:
+	cd /home/adam-torek/StandardDataStructures/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 data_structures/utils/CMakeFiles/Utils.dir/rule
+.PHONY : data_structures/utils/CMakeFiles/Utils.dir/rule
 
-# Build rule for target.
-Tester: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Tester
-.PHONY : Tester
-
-# fast build rule for target.
-Tester/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/build
-.PHONY : Tester/fast
-
-#=============================================================================
-# Target rules for targets named gmock
-
-# Build rule for target.
-gmock: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gmock
-.PHONY : gmock
-
-# fast build rule for target.
-gmock/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build
-.PHONY : gmock/fast
-
-#=============================================================================
-# Target rules for targets named gmock_main
-
-# Build rule for target.
-gmock_main: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gmock_main
-.PHONY : gmock_main
-
-# fast build rule for target.
-gmock_main/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build
-.PHONY : gmock_main/fast
-
-#=============================================================================
-# Target rules for targets named gtest
-
-# Build rule for target.
-gtest: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gtest
-.PHONY : gtest
-
-# fast build rule for target.
-gtest/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build
-.PHONY : gtest/fast
-
-#=============================================================================
-# Target rules for targets named gtest_main
-
-# Build rule for target.
-gtest_main: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gtest_main
-.PHONY : gtest_main
-
-# fast build rule for target.
-gtest_main/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build
-.PHONY : gtest_main/fast
-
-#=============================================================================
-# Target rules for targets named DataStructures
-
-# Build rule for target.
-DataStructures: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 DataStructures
-.PHONY : DataStructures
-
-# fast build rule for target.
-DataStructures/fast:
-	$(MAKE) $(MAKESILENT) -f data_structures/CMakeFiles/DataStructures.dir/build.make data_structures/CMakeFiles/DataStructures.dir/build
-.PHONY : DataStructures/fast
-
-#=============================================================================
-# Target rules for targets named Linear
-
-# Build rule for target.
-Linear: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Linear
-.PHONY : Linear
-
-# fast build rule for target.
-Linear/fast:
-	$(MAKE) $(MAKESILENT) -f data_structures/linear/CMakeFiles/Linear.dir/build.make data_structures/linear/CMakeFiles/Linear.dir/build
-.PHONY : Linear/fast
-
-#=============================================================================
-# Target rules for targets named Utils
-
-# Build rule for target.
-Utils: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Utils
+# Convenience name for target.
+Utils: data_structures/utils/CMakeFiles/Utils.dir/rule
 .PHONY : Utils
 
 # fast build rule for target.
 Utils/fast:
-	$(MAKE) $(MAKESILENT) -f data_structures/utils/CMakeFiles/Utils.dir/build.make data_structures/utils/CMakeFiles/Utils.dir/build
+	cd /home/adam-torek/StandardDataStructures/build && $(MAKE) $(MAKESILENT) -f data_structures/utils/CMakeFiles/Utils.dir/build.make data_structures/utils/CMakeFiles/Utils.dir/build
 .PHONY : Utils/fast
 
-Tests/main.o: Tests/main.cpp.o
-.PHONY : Tests/main.o
+dummy.o: dummy.cpp.o
+.PHONY : dummy.o
 
 # target to build an object file
-Tests/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/Tests/main.cpp.o
-.PHONY : Tests/main.cpp.o
+dummy.cpp.o:
+	cd /home/adam-torek/StandardDataStructures/build && $(MAKE) $(MAKESILENT) -f data_structures/utils/CMakeFiles/Utils.dir/build.make data_structures/utils/CMakeFiles/Utils.dir/dummy.cpp.o
+.PHONY : dummy.cpp.o
 
-Tests/main.i: Tests/main.cpp.i
-.PHONY : Tests/main.i
+dummy.i: dummy.cpp.i
+.PHONY : dummy.i
 
 # target to preprocess a source file
-Tests/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/Tests/main.cpp.i
-.PHONY : Tests/main.cpp.i
+dummy.cpp.i:
+	cd /home/adam-torek/StandardDataStructures/build && $(MAKE) $(MAKESILENT) -f data_structures/utils/CMakeFiles/Utils.dir/build.make data_structures/utils/CMakeFiles/Utils.dir/dummy.cpp.i
+.PHONY : dummy.cpp.i
 
-Tests/main.s: Tests/main.cpp.s
-.PHONY : Tests/main.s
+dummy.s: dummy.cpp.s
+.PHONY : dummy.s
 
 # target to generate assembly for a file
-Tests/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/Tests/main.cpp.s
-.PHONY : Tests/main.cpp.s
+dummy.cpp.s:
+	cd /home/adam-torek/StandardDataStructures/build && $(MAKE) $(MAKESILENT) -f data_structures/utils/CMakeFiles/Utils.dir/build.make data_structures/utils/CMakeFiles/Utils.dir/dummy.cpp.s
+.PHONY : dummy.cpp.s
 
 # Help Target
 help:
@@ -312,17 +222,10 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... test"
-	@echo "... DataStructures"
-	@echo "... Linear"
-	@echo "... Tester"
 	@echo "... Utils"
-	@echo "... gmock"
-	@echo "... gmock_main"
-	@echo "... gtest"
-	@echo "... gtest_main"
-	@echo "... Tests/main.o"
-	@echo "... Tests/main.i"
-	@echo "... Tests/main.s"
+	@echo "... dummy.o"
+	@echo "... dummy.i"
+	@echo "... dummy.s"
 .PHONY : help
 
 
@@ -334,6 +237,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/adam-torek/StandardDataStructures/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

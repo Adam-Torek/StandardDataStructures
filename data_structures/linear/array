@@ -1,14 +1,15 @@
 #include <cstddef>
 #include <cstring>
 #include <initializer_list>
+#include <data_structures/utils/comp>
 #include <algorithm>
 
 namespace ds::linear
 {
-    template<typename array>
+    template<typename static_array>
     class array_iterator {
         public:
-            using value_type = typename array::value_type;
+            using value_type = typename static_array::value_type;
             using pointer_type = value_type*;
             using reference_type = value_type&;
             using difference_type = std::ptrdiff_t;
@@ -126,26 +127,26 @@ namespace ds::linear
             pointer_type itr_ptr;
     };
 
-    template <typename array>
-    class reverse_array_iterator: public array_iterator<array> 
+    template <typename static_array>
+    class reverse_array_iterator: public array_iterator<static_array> 
     {
         public: 
-            using value_type = typename array::value_type;
+            using value_type = typename static_array::value_type;
             using pointer_type = value_type*;
             using reference_type = value_type&;
             using difference_type = std::ptrdiff_t;
-            using iterator_category = std::reverse_iterator<array>;
+            using iterator_category = std::random_access_iterator_tag;
 
-            reverse_array_iterator(pointer_type ptr): array_iterator<array>(ptr){}
+            reverse_array_iterator(pointer_type ptr): array_iterator<static_array>(ptr){}
             reverse_array_iterator(const reverse_array_iterator& other) = default;
-            reverse_array_iterator(const array_iterator<array>& other) {
+            reverse_array_iterator(const array_iterator<static_array>& other) {
                 this->itr_ptr = other->get_ptr();
             }
 
             ~reverse_array_iterator() = default;
 
             reverse_array_iterator& operator=(const reverse_array_iterator& other) = default;
-            reverse_array_iterator& operator=(const array_iterator<array>& other) {
+            reverse_array_iterator& operator=(const array_iterator<static_array>& other) {
                 this->itr_ptr = other->get_ptr();
                 return *this;
             }
@@ -208,8 +209,8 @@ namespace ds::linear
                 return this->get_ptr() - other->get_ptr();
             }
 
-            array_iterator<array> base() {
-                array_iterator<array> itr = array_iterator<array>(this->itr_ptr);
+            array_iterator<static_array> base() {
+                array_iterator<static_array> itr = array_iterator<static_array>(this->itr_ptr);
                 ++itr;
                 return itr;
             }
@@ -217,19 +218,19 @@ namespace ds::linear
     };
 
     template<typename T, unsigned int SIZE>
-    class array {
+    class static_array {
        
         private: 
             T arr[SIZE];
 
             void copy_elements(const T* other) {
-                for(int i = 0; i < SIZE; i++) {
+                for(unsigned int i = 0; i < SIZE; i++) {
                     arr[i] = other[i];
                 }
             }
 
             void copy_elements(const std::initializer_list<T>& other) {
-                int i = 0;
+                unsigned int i;
                 for(const T& element : other) {
                     arr[i] = element;
                     i++;
@@ -240,30 +241,30 @@ namespace ds::linear
             using value_type = T;
             using pointer_type = value_type*;
             using reference_type = value_type&;
-            using iterator = array_iterator<array<value_type, SIZE>>;
-            using const_iterator = array_iterator<array<const value_type, SIZE>>;
-            using reverse_iterator = reverse_array_iterator<array<value_type, SIZE>>;
-            using const_reverse_iterator = reverse_array_iterator<array<const value_type, SIZE>>;
+            using iterator = array_iterator<static_array<value_type, SIZE>>;
+            using const_iterator = array_iterator<static_array<const value_type, SIZE>>;
+            using reverse_iterator = reverse_array_iterator<static_array<value_type, SIZE>>;
+            using const_reverse_iterator = reverse_array_iterator<static_array<const value_type, SIZE>>;
 
-            array() {
+            static_array() {
                 if(SIZE > 0) {
                      memset(arr, 0, sizeof(T)*(SIZE-1) );
                 }               
             }
 
-            array(const std::initializer_list<T>& lst) {
+            static_array(const std::initializer_list<T>& lst) {
                copy_elements(lst);
             }
 
-            array(const array<T, SIZE>& other) {
+            static_array(const static_array<T, SIZE>& other) {
                 copy_elements(other.data());
             }
 
-            array<T, SIZE>& operator=(const std::initializer_list<T>& lst) {
+            static_array<T, SIZE>& operator=(const std::initializer_list<T>& lst) {
                 copy_elements(lst);
             }
 
-            array<T, SIZE>& operator=(const array<T, SIZE>& other) {
+            static_array<T, SIZE>& operator=(const static_array<T, SIZE>& other) {
                 copy_elements(other);
             }
 
@@ -284,7 +285,7 @@ namespace ds::linear
             }
 
             const pointer_type data() const {
-                return &arr;
+                return const_cast<T*>(arr);
             }
 
             reference_type front() {
@@ -355,7 +356,7 @@ namespace ds::linear
                 }
             }
 
-            void swap(array<T, SIZE>& other) {
+            void swap(static_array<T, SIZE>& other) {
                 T* d = other.data();
                 for(int i = 0; i < SIZE; i++) {
                     std::swap(this.arr[i], d[i]);
@@ -365,38 +366,38 @@ namespace ds::linear
         };
 
         template<typename T, unsigned int SIZE> 
-        void swap(const array<T,SIZE>& left, const array<T,SIZE>& right)
+        void swap(const static_array<T,SIZE>& left, const static_array<T,SIZE>& right)
         {
             left.swap(right);
         }
 
         template<typename T, unsigned int SIZE>
-        bool operator<(const array<T, SIZE>& left, const array<T, SIZE>& right) {
-                return std::lexicographical_compare(left.cbegin(), left.cend(), right.cbegin(), right.cend());
+        bool operator<(const static_array<T, SIZE>& left, const static_array<T, SIZE>& right) {
+                return ds::utils::lexicographical_compare(left.cbegin(), left.cend(), right.cbegin(), right.cend());
         }
 
         template<typename T, unsigned int SIZE>
-        bool operator>(const array<T, SIZE>& left, const array<T, SIZE>& right) {
+        bool operator>(const static_array<T, SIZE>& left, const static_array<T, SIZE>& right) {
             return right < left;
         }
 
         template<typename T, unsigned int SIZE>
-        bool operator<=(const array<T, SIZE>& left, const array<T, SIZE>& right) {
+        bool operator<=(const static_array<T, SIZE>& left, const static_array<T, SIZE>& right) {
             return !(left < right);
         }
 
         template<typename T, unsigned int SIZE>
-        bool operator>=(const array<T, SIZE>& left, const array<T, SIZE>& right) {
+        bool operator>=(const static_array<T, SIZE>& left, const static_array<T, SIZE>& right) {
             return !(right < left);
         }
 
         template<typename T, unsigned int SIZE>
-        bool operator==(const array<T, SIZE>& left, const array<T, SIZE>& right) {
-            return std::equal(left.cbegin(), left.cend(), right.cbegin());
+        bool operator==(const static_array<T, SIZE>& left, const static_array<T, SIZE>& right) {
+            return ds::utils::equal(left.cbegin(), left.cend(), right.cbegin());
         }
 
         template<typename T, unsigned int SIZE>
-        bool operator!=(const array<T, SIZE>& left, const array<T, SIZE>& right) {
+        bool operator!=(const static_array<T, SIZE>& left, const static_array<T, SIZE>& right) {
             return !(left == right);
         }
 } // namespace ds::linear

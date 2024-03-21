@@ -114,6 +114,10 @@
 		{
 			"backtrace" : 2,
 			"id" : "Linear::@608769c83279de0fe27f"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "Utils::@47e2f4810bfb54a2f2d0"
 		}
 	],
 	"id" : "Tester::@6890427a1f51a3e7e1df",
@@ -136,6 +140,10 @@
 			},
 			{
 				"fragment" : "data_structures/linear/libLinear.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "data_structures/utils/libUtils.a",
 				"role" : "libraries"
 			},
 			{

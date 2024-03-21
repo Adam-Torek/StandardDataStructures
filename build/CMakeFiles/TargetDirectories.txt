@@ -47,3 +47,11 @@
 /home/adam-torek/StandardDataStructures/build/data_structures/linear/CMakeFiles/install.dir
 /home/adam-torek/StandardDataStructures/build/data_structures/linear/CMakeFiles/install/local.dir
 /home/adam-torek/StandardDataStructures/build/data_structures/linear/CMakeFiles/install/strip.dir
+/home/adam-torek/StandardDataStructures/build/data_structures/utils/CMakeFiles/Utils.dir
+/home/adam-torek/StandardDataStructures/build/data_structures/utils/CMakeFiles/test.dir
+/home/adam-torek/StandardDataStructures/build/data_structures/utils/CMakeFiles/edit_cache.dir
+/home/adam-torek/StandardDataStructures/build/data_structures/utils/CMakeFiles/rebuild_cache.dir
+/home/adam-torek/StandardDataStructures/build/data_structures/utils/CMakeFiles/list_install_components.dir
+/home/adam-torek/StandardDataStructures/build/data_structures/utils/CMakeFiles/install.dir
+/home/adam-torek/StandardDataStructures/build/data_structures/utils/CMakeFiles/install/local.dir
+/home/adam-torek/StandardDataStructures/build/data_structures/utils/CMakeFiles/install/strip.dir

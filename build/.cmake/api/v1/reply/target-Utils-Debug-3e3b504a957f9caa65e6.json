@@ -3,7 +3,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "data_structures/libDataStructures.a"
+			"path" : "data_structures/utils/libUtils.a"
 		}
 	],
 	"backtrace" : 1,
@@ -11,13 +11,11 @@
 	{
 		"commands" : 
 		[
-			"add_library",
-			"target_link_libraries",
-			"target_include_directories"
+			"add_library"
 		],
 		"files" : 
 		[
-			"data_structures/CMakeLists.txt"
+			"data_structures/utils/CMakeLists.txt"
 		],
 		"nodes" : 
 		[
@@ -27,19 +25,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 3,
-				"parent" : 0
-			},
-			{
-				"command" : 1,
-				"file" : 0,
-				"line" : 5,
-				"parent" : 0
-			},
-			{
-				"command" : 2,
-				"file" : 0,
-				"line" : 4,
+				"line" : 1,
 				"parent" : 0
 			}
 		]
@@ -54,13 +40,6 @@
 				},
 				{
 					"fragment" : "-std=gnu++14"
-				}
-			],
-			"includes" : 
-			[
-				{
-					"backtrace" : 3,
-					"path" : "/home/adam-torek/StandardDataStructures/data_structures"
 				}
 			],
 			"language" : "CXX",
@@ -78,20 +57,13 @@
 			]
 		}
 	],
-	"dependencies" : 
-	[
-		{
-			"backtrace" : 2,
-			"id" : "Linear::@608769c83279de0fe27f"
-		}
-	],
-	"id" : "DataStructures::@279bcb8fb26d85f9b6f1",
-	"name" : "DataStructures",
-	"nameOnDisk" : "libDataStructures.a",
+	"id" : "Utils::@47e2f4810bfb54a2f2d0",
+	"name" : "Utils",
+	"nameOnDisk" : "libUtils.a",
 	"paths" : 
 	{
-		"build" : "data_structures",
-		"source" : "data_structures"
+		"build" : "data_structures/utils",
+		"source" : "data_structures/utils"
 	},
 	"sourceGroups" : 
 	[
@@ -101,6 +73,13 @@
 			[
 				0
 			]
+		},
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				1
+			]
 		}
 	],
 	"sources" : 
@@ -108,8 +87,13 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "data_structures/dummy.cpp",
+			"path" : "data_structures/utils/dummy.cpp",
 			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "data_structures/utils/comp",
+			"sourceGroupIndex" : 1
 		}
 	],
 	"type" : "STATIC_LIBRARY"

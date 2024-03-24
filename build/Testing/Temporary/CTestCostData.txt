@@ -2,5 +2,6 @@ Tester:TEST 0 1
 Test 0 1
 Test 0 0
 Test 0 0
-TestArray.TestEmptyArray 7 0.00242438
+TestArray.TestEmptyArray 9 0.00236812
+TestArray.TestEmptyArrayInitialized 2 0.00202801
 ---

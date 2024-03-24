@@ -30,3 +30,17 @@ TEST(TestArray, TestEmptyArrayInitialized) {
     ds::linear::static_array<int, 0> empty_arr = {};
     run_empty_array_tests(empty_arr);
 }
+
+TEST(TestArray, TestEmptyArrayInitializedAnotherArray) {
+    ds::linear::static_array<int, 0> empty_arr;
+    ds::linear::static_array<int, 0> empty_arr2 = empty_arr;
+    run_empty_array_tests(empty_arr2);
+}
+
+static void run_one_element_tests(ds::linear::static_array<int, 1> arr, std::array<int, 1> other) {
+    EXPECT_EQ(arr.size(), 1);
+    EXPECT_EQ(arr.max_size(), 1);
+    EXPECT_EQ(arr.front(), other.front());
+    EXPECT_EQ(arr.back(), other.back());
+}
+

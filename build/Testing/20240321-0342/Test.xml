@@ -7,8 +7,8 @@
 	CompilerVersion="11.4.0"
 	OSName="Linux"
 	Hostname="behemoth"
-	OSRelease="6.5.0-25-generic"
-	OSVersion="#25~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue Feb 20 16:09:15 UTC 2"
+	OSRelease="6.5.0-26-generic"
+	OSVersion="#26~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue Mar 12 10:22:43 UTC 2"
 	OSPlatform="x86_64"
 	Is64Bits="1"
 	VendorString="AuthenticAMD"
@@ -21,14 +21,14 @@
 	TotalVirtualMemory="2047"
 	TotalPhysicalMemory="64188"
 	LogicalProcessorsPerPhysical="2"
-	ProcessorClockFrequency="3766.75"
+	ProcessorClockFrequency="4544.67"
 	>
 	<Testing>
-		<StartDateTime>Mar 20 22:07 MDT</StartDateTime>
-		<StartTestTime>1710994059</StartTestTime>
+		<StartDateTime>Mar 21 12:28 MDT</StartDateTime>
+		<StartTestTime>1711045682</StartTestTime>
 		<TestList/>
-		<EndDateTime>Mar 20 22:07 MDT</EndDateTime>
-		<EndTestTime>1710994059</EndTestTime>
+		<EndDateTime>Mar 21 12:28 MDT</EndDateTime>
+		<EndTestTime>1711045682</EndTestTime>
 		<ElapsedMinutes>0</ElapsedMinutes>
 	</Testing>
 </Site>

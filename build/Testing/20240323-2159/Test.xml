@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="Linux-g++"
+	BuildStamp="20240323-2159-Experimental"
+	Name="behemoth"
+	Generator="ctest-3.22.1"
+	CompilerName="g++"
+	CompilerVersion="11.4.0"
+	OSName="Linux"
+	Hostname="behemoth"
+	OSRelease="6.5.0-26-generic"
+	OSVersion="#26~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue Mar 12 10:22:43 UTC 2"
+	OSPlatform="x86_64"
+	Is64Bits="1"
+	VendorString="AuthenticAMD"
+	VendorID="Advanced Micro Devices"
+	FamilyID="25"
+	ModelID="33"
+	ProcessorCacheSize="512"
+	NumberOfLogicalCPU="32"
+	NumberOfPhysicalCPU="16"
+	TotalVirtualMemory="2047"
+	TotalPhysicalMemory="64188"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="4581.13"
+	>
+	<Testing>
+		<StartDateTime>Mar 23 16:01 MDT</StartDateTime>
+		<StartTestTime>1711231266</StartTestTime>
+		<TestList>
+			<Test>./TestArray.TestEmptyArrayInitialized</Test>
+		</TestList>
+		<Test Status="passed">
+			<Name>TestArray.TestEmptyArrayInitialized</Name>
+			<Path>.</Path>
+			<FullName>./TestArray.TestEmptyArrayInitialized</FullName>
+			<FullCommandLine>/home/adam-torek/StandardDataStructures/build/Tester "--gtest_filter=TestArray.TestEmptyArrayInitialized" "--gtest_also_run_disabled_tests"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.00201504</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/home/adam-torek/StandardDataStructures/build/Tester "--gtest_filter=TestArray.TestEmptyArrayInitialized" "--gtest_also_run_disabled_tests"</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value encoding="base64" compression="gzip">eJyNUMtqw0AMvPsrdIwP9rbXQg6BhBAKabHbkzFB8Sru0n2YtbYl/frG62CSQsFzmkEjaaQiWKtsCwaVXaRw8s6A+HCGBEo0GTtPn6JktBK9XCNjyT40HDz14hiUluIgqetF61yriannrPfNjRRRDuww7MibJtk7pifYRgu8XSpwUprJwzKqlfd4zge2MR2fo9xZxQq1+iGZVMsJNRTX/I/AcdCQ/8r7oJjypMom1LDV7oh6rJP9Ut5ZQ/biJc5C98d8O3MKllRQvO8hop6XdzTDy/O8Blg8gOnTGVlGJ7Bj1Gky71Im9Jl03/b+j//9Dzza/H7P5Z7XVVlu1sMDRm+e/AKjF8Do====</Value>
+				</Measurement>
+			</Results>
+		</Test>
+		<EndDateTime>Mar 23 16:01 MDT</EndDateTime>
+		<EndTestTime>1711231266</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>

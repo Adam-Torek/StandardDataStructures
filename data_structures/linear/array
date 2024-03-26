@@ -230,7 +230,7 @@ namespace ds::linear
             }
 
             void copy_elements(const std::initializer_list<T>& other) {
-                unsigned int i;
+                unsigned int i = 0;
                 for(const T& element : other) {
                     arr[i] = element;
                     i++;

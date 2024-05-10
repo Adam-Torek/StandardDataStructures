@@ -6,10 +6,10 @@
 
 namespace ds::linear
 {
-    template<typename static_array>
+    template<typename T>
     class array_iterator {
         public:
-            using value_type = typename static_array::value_type;
+            using value_type = T;
             using pointer_type = value_type*;
             using reference_type = value_type&;
             using difference_type = std::ptrdiff_t;
@@ -127,26 +127,26 @@ namespace ds::linear
             pointer_type itr_ptr;
     };
 
-    template <typename static_array>
-    class reverse_array_iterator: public array_iterator<static_array> 
+    template <typename T>
+    class reverse_array_iterator: public array_iterator<T> 
     {
         public: 
-            using value_type = typename static_array::value_type;
+            using value_type = T;
             using pointer_type = value_type*;
             using reference_type = value_type&;
             using difference_type = std::ptrdiff_t;
             using iterator_category = std::random_access_iterator_tag;
 
-            reverse_array_iterator(pointer_type ptr): array_iterator<static_array>(ptr){}
+            reverse_array_iterator(pointer_type ptr): array_iterator<T>(ptr){}
             reverse_array_iterator(const reverse_array_iterator& other) = default;
-            reverse_array_iterator(const array_iterator<static_array>& other) {
+            reverse_array_iterator(const array_iterator<T>& other) {
                 this->itr_ptr = other->get_ptr();
             }
 
             ~reverse_array_iterator() = default;
 
             reverse_array_iterator& operator=(const reverse_array_iterator& other) = default;
-            reverse_array_iterator& operator=(const array_iterator<static_array>& other) {
+            reverse_array_iterator& operator=(const array_iterator<T>& other) {
                 this->itr_ptr = other->get_ptr();
                 return *this;
             }
@@ -209,8 +209,8 @@ namespace ds::linear
                 return this->get_ptr() - other->get_ptr();
             }
 
-            array_iterator<static_array> base() {
-                array_iterator<static_array> itr = array_iterator<static_array>(this->itr_ptr);
+            array_iterator<T> base() {
+                array_iterator<T> itr = array_iterator<T>(this->itr_ptr);
                 ++itr;
                 return itr;
             }
@@ -241,10 +241,10 @@ namespace ds::linear
             using value_type = T;
             using pointer_type = value_type*;
             using reference_type = value_type&;
-            using iterator = array_iterator<static_array<value_type, SIZE>>;
-            using const_iterator = array_iterator<static_array<const value_type, SIZE>>;
-            using reverse_iterator = reverse_array_iterator<static_array<value_type, SIZE>>;
-            using const_reverse_iterator = reverse_array_iterator<static_array<const value_type, SIZE>>;
+            using iterator = array_iterator<T>;
+            using const_iterator = array_iterator<const T>;
+            using reverse_iterator = reverse_array_iterator<T>;
+            using const_reverse_iterator = reverse_array_iterator<const T>;
 
             static_array() {
                 if(SIZE > 0) {
@@ -342,11 +342,11 @@ namespace ds::linear
                 return reverse_iterator(&arr[-1]);
             }
 
-            const_reverse_iterator rcbegin() {
+            const_reverse_iterator crbegin() {
                 return const_reverse_iterator(&arr[SIZE-1]);
             }
 
-            const_reverse_iterator rcend() {
+            const_reverse_iterator crend() {
                 return const_reverse_iterator(&arr[-1]);
             }
 

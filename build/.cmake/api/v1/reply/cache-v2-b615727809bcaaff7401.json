@@ -1667,7 +1667,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "[/home/adam-torek/miniconda3/lib/cmake/GTest/GTestConfig.cmake][c ][v1.10.0()]"
+			"value" : "[/home/adam-torek/miniconda3/lib/cmake/GTest/GTestConfig.cmake][c ][v1.11.0()]"
 		},
 		{
 			"name" : "FIND_PACKAGE_MESSAGE_DETAILS_Python",

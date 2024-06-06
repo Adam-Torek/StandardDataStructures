@@ -1,1 +1,1 @@
-add_library(Linear "array" "dummy.cpp")
+add_library(Linear "array" "array_iterator" "dynamic_array" "dummy.cpp" )

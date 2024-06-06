@@ -69,10 +69,24 @@ include data_structures/linear/CMakeFiles/Linear.dir/progress.make
 # Include the compile flags for this target's objects.
 include data_structures/linear/CMakeFiles/Linear.dir/flags.make
 
+data_structures/linear/CMakeFiles/Linear.dir/dynamic_array.cpp.o: data_structures/linear/CMakeFiles/Linear.dir/flags.make
+data_structures/linear/CMakeFiles/Linear.dir/dynamic_array.cpp.o: ../data_structures/linear/dynamic_array.cpp
+data_structures/linear/CMakeFiles/Linear.dir/dynamic_array.cpp.o: data_structures/linear/CMakeFiles/Linear.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/adam-torek/StandardDataStructures/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object data_structures/linear/CMakeFiles/Linear.dir/dynamic_array.cpp.o"
+	cd /home/adam-torek/StandardDataStructures/build/data_structures/linear && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT data_structures/linear/CMakeFiles/Linear.dir/dynamic_array.cpp.o -MF CMakeFiles/Linear.dir/dynamic_array.cpp.o.d -o CMakeFiles/Linear.dir/dynamic_array.cpp.o -c /home/adam-torek/StandardDataStructures/data_structures/linear/dynamic_array.cpp
+
+data_structures/linear/CMakeFiles/Linear.dir/dynamic_array.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Linear.dir/dynamic_array.cpp.i"
+	cd /home/adam-torek/StandardDataStructures/build/data_structures/linear && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/adam-torek/StandardDataStructures/data_structures/linear/dynamic_array.cpp > CMakeFiles/Linear.dir/dynamic_array.cpp.i
+
+data_structures/linear/CMakeFiles/Linear.dir/dynamic_array.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Linear.dir/dynamic_array.cpp.s"
+	cd /home/adam-torek/StandardDataStructures/build/data_structures/linear && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/adam-torek/StandardDataStructures/data_structures/linear/dynamic_array.cpp -o CMakeFiles/Linear.dir/dynamic_array.cpp.s
+
 data_structures/linear/CMakeFiles/Linear.dir/dummy.cpp.o: data_structures/linear/CMakeFiles/Linear.dir/flags.make
 data_structures/linear/CMakeFiles/Linear.dir/dummy.cpp.o: ../data_structures/linear/dummy.cpp
 data_structures/linear/CMakeFiles/Linear.dir/dummy.cpp.o: data_structures/linear/CMakeFiles/Linear.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/adam-torek/StandardDataStructures/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object data_structures/linear/CMakeFiles/Linear.dir/dummy.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/adam-torek/StandardDataStructures/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object data_structures/linear/CMakeFiles/Linear.dir/dummy.cpp.o"
 	cd /home/adam-torek/StandardDataStructures/build/data_structures/linear && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT data_structures/linear/CMakeFiles/Linear.dir/dummy.cpp.o -MF CMakeFiles/Linear.dir/dummy.cpp.o.d -o CMakeFiles/Linear.dir/dummy.cpp.o -c /home/adam-torek/StandardDataStructures/data_structures/linear/dummy.cpp
 
 data_structures/linear/CMakeFiles/Linear.dir/dummy.cpp.i: cmake_force
@@ -85,15 +99,17 @@ data_structures/linear/CMakeFiles/Linear.dir/dummy.cpp.s: cmake_force
 
 # Object files for target Linear
 Linear_OBJECTS = \
+"CMakeFiles/Linear.dir/dynamic_array.cpp.o" \
 "CMakeFiles/Linear.dir/dummy.cpp.o"
 
 # External object files for target Linear
 Linear_EXTERNAL_OBJECTS =
 
+data_structures/linear/libLinear.a: data_structures/linear/CMakeFiles/Linear.dir/dynamic_array.cpp.o
 data_structures/linear/libLinear.a: data_structures/linear/CMakeFiles/Linear.dir/dummy.cpp.o
 data_structures/linear/libLinear.a: data_structures/linear/CMakeFiles/Linear.dir/build.make
 data_structures/linear/libLinear.a: data_structures/linear/CMakeFiles/Linear.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/adam-torek/StandardDataStructures/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libLinear.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/adam-torek/StandardDataStructures/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library libLinear.a"
 	cd /home/adam-torek/StandardDataStructures/build/data_structures/linear && $(CMAKE_COMMAND) -P CMakeFiles/Linear.dir/cmake_clean_target.cmake
 	cd /home/adam-torek/StandardDataStructures/build/data_structures/linear && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Linear.dir/link.txt --verbose=$(VERBOSE)
 

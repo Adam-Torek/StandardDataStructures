@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/adam-torek/StandardDataStructures/data_structures/linear/dummy.cpp" "data_structures/linear/CMakeFiles/Linear.dir/dummy.cpp.o" "gcc" "data_structures/linear/CMakeFiles/Linear.dir/dummy.cpp.o.d"
+  "/home/adam-torek/StandardDataStructures/data_structures/linear/dynamic_array.cpp" "data_structures/linear/CMakeFiles/Linear.dir/dynamic_array.cpp.o" "gcc" "data_structures/linear/CMakeFiles/Linear.dir/dynamic_array.cpp.o.d"
   )
 
 # Targets to which this target links.

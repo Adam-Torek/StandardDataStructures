@@ -209,6 +209,30 @@ dummy.cpp.s:
 	cd /home/adam-torek/StandardDataStructures/build && $(MAKE) $(MAKESILENT) -f data_structures/linear/CMakeFiles/Linear.dir/build.make data_structures/linear/CMakeFiles/Linear.dir/dummy.cpp.s
 .PHONY : dummy.cpp.s
 
+dynamic_array.o: dynamic_array.cpp.o
+.PHONY : dynamic_array.o
+
+# target to build an object file
+dynamic_array.cpp.o:
+	cd /home/adam-torek/StandardDataStructures/build && $(MAKE) $(MAKESILENT) -f data_structures/linear/CMakeFiles/Linear.dir/build.make data_structures/linear/CMakeFiles/Linear.dir/dynamic_array.cpp.o
+.PHONY : dynamic_array.cpp.o
+
+dynamic_array.i: dynamic_array.cpp.i
+.PHONY : dynamic_array.i
+
+# target to preprocess a source file
+dynamic_array.cpp.i:
+	cd /home/adam-torek/StandardDataStructures/build && $(MAKE) $(MAKESILENT) -f data_structures/linear/CMakeFiles/Linear.dir/build.make data_structures/linear/CMakeFiles/Linear.dir/dynamic_array.cpp.i
+.PHONY : dynamic_array.cpp.i
+
+dynamic_array.s: dynamic_array.cpp.s
+.PHONY : dynamic_array.s
+
+# target to generate assembly for a file
+dynamic_array.cpp.s:
+	cd /home/adam-torek/StandardDataStructures/build && $(MAKE) $(MAKESILENT) -f data_structures/linear/CMakeFiles/Linear.dir/build.make data_structures/linear/CMakeFiles/Linear.dir/dynamic_array.cpp.s
+.PHONY : dynamic_array.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -226,6 +250,9 @@ help:
 	@echo "... dummy.o"
 	@echo "... dummy.i"
 	@echo "... dummy.s"
+	@echo "... dynamic_array.o"
+	@echo "... dynamic_array.i"
+	@echo "... dynamic_array.s"
 .PHONY : help
 
 

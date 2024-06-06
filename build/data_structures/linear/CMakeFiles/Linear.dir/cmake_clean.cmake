@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Linear.dir/dummy.cpp.o"
   "CMakeFiles/Linear.dir/dummy.cpp.o.d"
+  "CMakeFiles/Linear.dir/dynamic_array.cpp.o"
+  "CMakeFiles/Linear.dir/dynamic_array.cpp.o.d"
   "libLinear.a"
   "libLinear.pdb"
 )

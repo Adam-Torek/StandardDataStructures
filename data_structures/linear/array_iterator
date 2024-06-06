@@ -1,0 +1,335 @@
+namespace ds::linear {
+
+    template<typename T>
+    class array_iterator {
+        public:
+            using value_type = T;
+            using pointer_type = value_type*;
+            using reference_type = value_type&;
+            using difference_type = std::ptrdiff_t;
+            using iterator_category = std::random_access_iterator_tag;
+
+            array_iterator(pointer_type ptr): itr_ptr(ptr) {};
+            array_iterator(const array_iterator& other) = default;
+            ~array_iterator() = default;
+
+            array_iterator& operator=(const array_iterator& other) = default;
+
+            array_iterator& operator=(pointer_type ptr) 
+            {
+                itr_ptr = ptr; 
+                return *this;
+            }
+
+            array_iterator& operator-=(const difference_type& n) {
+                itr_ptr -= n;
+                return *this;
+            }
+
+            array_iterator& operator+=(const difference_type& n) {
+                itr_ptr += n;
+                return *this;
+            }
+
+            array_iterator& operator++() {
+                itr_ptr++;
+                return *this;
+            }           
+
+            array_iterator& operator--() {
+                itr_ptr--;
+                return *this;
+            }
+
+            array_iterator operator++(int) {
+                array_iterator temp = *this;
+                ++(*this);
+                return temp;
+            }
+
+            array_iterator operator--(int) {
+                array_iterator temp = *this;
+                --(*this);
+                return temp;
+            }
+
+            reference_type operator*() const {
+                return *itr_ptr;
+            }
+
+            pointer_type operator->() const {
+                return &itr_ptr;
+            }
+
+            reference_type operator[](const difference_type& n) {
+                return *(itr_ptr+n);
+            }
+
+            difference_type operator-(const array_iterator& other) const {
+                return itr_ptr-other.get_ptr();
+            }
+
+            array_iterator operator-(const int& n) const {
+                pointer_type old_ptr = itr_ptr;
+                itr_ptr -= n;
+                array_iterator temp = *this;
+                itr_ptr = old_ptr;
+                return temp;
+            }
+
+            array_iterator operator+(const int& n) const {
+                pointer_type old_ptr = itr_ptr;
+                itr_ptr += n;
+                array_iterator temp = *this;
+                itr_ptr = old_ptr;
+                return temp;
+            }
+
+            bool operator==(const array_iterator& other) const {
+                return itr_ptr == other.itr_ptr;
+            }
+
+            bool operator!=(const array_iterator& other) const {
+                return  itr_ptr != other.itr_ptr;
+            }
+
+            bool operator>(const array_iterator& other) const {
+                return itr_ptr > other.itr_ptr;
+            }
+
+            bool operator<(const array_iterator& other) const {
+                return itr_ptr < other.itr_ptr;
+            }
+
+            bool operator<=(const array_iterator& other) const {
+                return itr_ptr <= other.itr_ptr;
+            }
+
+            bool operator>=(const array_iterator& other) const {
+                return itr_ptr >= other.itr_ptr;
+            }
+
+            pointer_type get_ptr() {
+                return itr_ptr;
+            }
+
+            void set_ptr(pointer_type ptr) {
+                itr_ptr = ptr;
+            }
+
+        protected:
+            pointer_type itr_ptr;
+    };
+
+    template <typename T>
+    class reverse_array_iterator: public array_iterator<T> 
+    {
+        public: 
+            using value_type = T;
+            using pointer_type = value_type*;
+            using reference_type = value_type&;
+            using difference_type = std::ptrdiff_t;
+            using iterator_category = std::random_access_iterator_tag;
+
+            reverse_array_iterator(pointer_type ptr): array_iterator<T>(ptr){}
+            reverse_array_iterator(const reverse_array_iterator& other) = default;
+            reverse_array_iterator(const array_iterator<T>& other) {
+                this->itr_ptr = other->get_ptr();
+            }
+
+            ~reverse_array_iterator() = default;
+
+            reverse_array_iterator& operator=(const reverse_array_iterator& other) = default;
+            reverse_array_iterator& operator=(const array_iterator<T>& other) {
+                this->itr_ptr = other->get_ptr();
+                return *this;
+            }
+
+            reverse_array_iterator& operator=(const pointer_type ptr) {
+                this->itr_ptr = ptr;
+                return *this;
+            }
+
+            reverse_array_iterator& operator-=(const difference_type& n) {
+                this->itr_ptr += n;
+                return *this;
+            }
+
+             reverse_array_iterator& operator+=(const difference_type& n) {
+                this->itr_ptr -= n;
+                return *this;
+            }
+
+
+            reverse_array_iterator& operator++() {
+                --this->itr_ptr; 
+                return *this;
+            }
+
+            reverse_array_iterator operator++(int) {
+                reverse_array_iterator temp = *this;
+                ++(*this); 
+                return temp;
+            }
+
+            reverse_array_iterator& operator--() {
+                ++this->itr_ptr; 
+                return *this;
+            }
+
+            reverse_array_iterator operator--(int) {
+                reverse_array_iterator temp = *this;
+                --(*this); 
+                return temp;
+            }
+
+            reverse_array_iterator operator-(const int& n) const {
+                pointer_type old_ptr = this->itr_ptr;
+                this->itr_ptr += n;
+                reverse_array_iterator temp = *this;
+                this->itr_ptr = old_ptr;
+                return temp;
+            }
+
+            reverse_array_iterator operator+(const int& n) const {
+                pointer_type old_ptr = this->itr_ptr;
+                this->itr_ptr -= n;
+                reverse_array_iterator temp = *this;
+                this->itr_ptr = old_ptr;
+                return temp;
+            }
+
+            difference_type operator-(const reverse_array_iterator& other) {
+                return this->get_ptr() - other->get_ptr();
+            }
+
+            array_iterator<T> base() {
+                array_iterator<T> itr = array_iterator<T>(this->itr_ptr);
+                ++itr;
+                return itr;
+            }
+
+    };
+
+    template <typename T>
+    class const_array_iterator {
+        public:
+            using value_type = const T;
+            using pointer_type = value_type*;
+            using reference_type = value_type&;
+            using difference_type = std::ptrdiff_t;
+            using iterator_category = std::random_access_iterator_tag;
+
+            const_array_iterator(pointer_type ptr): itr_ptr(ptr) {};
+            const_array_iterator(const const_array_iterator& other) = default;
+            ~const_array_iterator() = default;
+
+            const_array_iterator& operator=(const const_array_iterator& other) = default;
+
+            const_array_iterator& operator=(pointer_type ptr) 
+            {
+                itr_ptr = ptr; 
+                return *this;
+            }
+
+            const_array_iterator& operator-=(const difference_type& n) {
+                itr_ptr -= n;
+                return *this;
+            }
+
+            const_array_iterator& operator+=(const difference_type& n) {
+                itr_ptr += n;
+                return *this;
+            }
+
+            const_array_iterator& operator++() {
+                itr_ptr++;
+                return *this;
+            }           
+
+            const_array_iterator& operator--() {
+                itr_ptr--;
+                return *this;
+            }
+
+            const_array_iterator operator++(int) {
+                const_array_iterator temp = *this;
+                ++(*this);
+                return temp;
+            }
+
+            const_array_iterator operator--(int) {
+                const_array_iterator temp = *this;
+                --(*this);
+                return temp;
+            }
+
+            const_array_iterator operator*() const {
+                return *itr_ptr;
+            }
+
+            const_array_iterator operator->() const {
+                return &itr_ptr;
+            }
+
+            const_array_iterator operator[](const difference_type& n) {
+                return *(itr_ptr+n);
+            }
+
+            difference_type operator-(const const_array_iterator& other) const {
+                return itr_ptr-other.get_ptr();
+            }
+
+            const_array_iterator operator-(const int& n) const {
+                pointer_type old_ptr = itr_ptr;
+                itr_ptr -= n;
+                const_array_iterator temp = *this;
+                itr_ptr = old_ptr;
+                return temp;
+            }
+
+            const_array_iterator operator+(const int& n) const {
+                pointer_type old_ptr = itr_ptr;
+                itr_ptr += n;
+                const_array_iterator temp = *this;
+                itr_ptr = old_ptr;
+                return temp;
+            }
+
+            bool operator==(const const_array_iterator& other) const {
+                return itr_ptr == other.itr_ptr;
+            }
+
+            bool operator!=(const const_array_iterator& other) const {
+                return  itr_ptr != other.itr_ptr;
+            }
+
+            bool operator>(const const_array_iterator& other) const {
+                return itr_ptr > other.itr_ptr;
+            }
+
+            bool operator<(const const_array_iterator& other) const {
+                return itr_ptr < other.itr_ptr;
+            }
+
+            bool operator<=(const const_array_iterator& other) const {
+                return itr_ptr <= other.itr_ptr;
+            }
+
+            bool operator>=(const const_array_iterator& other) const {
+                return itr_ptr >= other.itr_ptr;
+            }
+
+            pointer_type get_ptr() {
+                return itr_ptr;
+            }
+
+            void set_ptr(pointer_type ptr) {
+                itr_ptr = ptr;
+            }
+
+        protected:
+            pointer_type itr_ptr;
+    };
+   
+}
